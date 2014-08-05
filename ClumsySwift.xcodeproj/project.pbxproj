@@ -9,10 +9,22 @@
 /* Begin PBXBuildFile section */
 		5723C601199123C400B6087F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5723C600199123C400B6087F /* AppDelegate.swift */; };
 		5723C604199123C400B6087F /* ClumsySwift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5723C602199123C400B6087F /* ClumsySwift.xcdatamodeld */; };
-		5723C606199123C400B6087F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5723C605199123C400B6087F /* ViewController.swift */; };
-		5723C609199123C500B6087F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5723C607199123C400B6087F /* Main.storyboard */; };
 		5723C60B199123C500B6087F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5723C60A199123C500B6087F /* Images.xcassets */; };
 		5723C617199123C500B6087F /* ClumsySwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5723C616199123C500B6087F /* ClumsySwiftTests.swift */; };
+		5723C62E1991257200B6087F /* ClumsyActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5723C6201991257200B6087F /* ClumsyActions.swift */; };
+		5723C62F1991257200B6087F /* ClumsyActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5723C6211991257200B6087F /* ClumsyActionView.swift */; };
+		5723C6301991257200B6087F /* ClumsyEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5723C6221991257200B6087F /* ClumsyEngine.swift */; };
+		5723C6311991257200B6087F /* ClumsyMainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5723C6231991257200B6087F /* ClumsyMainButton.swift */; };
+		5723C6321991257200B6087F /* ClumsyMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5723C6241991257200B6087F /* ClumsyMainView.swift */; };
+		5723C6331991257200B6087F /* ClumsyMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5723C6251991257200B6087F /* ClumsyMainViewController.swift */; };
+		5723C6341991257200B6087F /* ClumsyOkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5723C6261991257200B6087F /* ClumsyOkButton.swift */; };
+		5723C6351991257200B6087F /* ClumsyProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5723C6271991257200B6087F /* ClumsyProgressBar.swift */; };
+		5723C6361991257200B6087F /* ClumsyScoreHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5723C6281991257200B6087F /* ClumsyScoreHandler.swift */; };
+		5723C6371991257200B6087F /* ClumsyScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5723C6291991257200B6087F /* ClumsyScoreView.swift */; };
+		5723C6381991257200B6087F /* ClumsyShake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5723C62A1991257200B6087F /* ClumsyShake.swift */; };
+		5723C6391991257200B6087F /* ClumsySocialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5723C62B1991257200B6087F /* ClumsySocialButton.swift */; };
+		5723C63A1991257200B6087F /* ClumsySocialHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5723C62C1991257200B6087F /* ClumsySocialHandler.swift */; };
+		5723C63B1991257200B6087F /* ClumsySwipeGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5723C62D1991257200B6087F /* ClumsySwipeGestureRecognizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,12 +42,24 @@
 		5723C5FF199123C400B6087F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5723C600199123C400B6087F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5723C603199123C400B6087F /* ClumsySwift.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ClumsySwift.xcdatamodel; sourceTree = "<group>"; };
-		5723C605199123C400B6087F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5723C608199123C500B6087F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5723C60A199123C500B6087F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5723C610199123C500B6087F /* ClumsySwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClumsySwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5723C615199123C500B6087F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5723C616199123C500B6087F /* ClumsySwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClumsySwiftTests.swift; sourceTree = "<group>"; };
+		5723C6201991257200B6087F /* ClumsyActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClumsyActions.swift; sourceTree = "<group>"; };
+		5723C6211991257200B6087F /* ClumsyActionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClumsyActionView.swift; sourceTree = "<group>"; };
+		5723C6221991257200B6087F /* ClumsyEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClumsyEngine.swift; sourceTree = "<group>"; };
+		5723C6231991257200B6087F /* ClumsyMainButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClumsyMainButton.swift; sourceTree = "<group>"; };
+		5723C6241991257200B6087F /* ClumsyMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClumsyMainView.swift; sourceTree = "<group>"; };
+		5723C6251991257200B6087F /* ClumsyMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClumsyMainViewController.swift; sourceTree = "<group>"; };
+		5723C6261991257200B6087F /* ClumsyOkButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClumsyOkButton.swift; sourceTree = "<group>"; };
+		5723C6271991257200B6087F /* ClumsyProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClumsyProgressBar.swift; sourceTree = "<group>"; };
+		5723C6281991257200B6087F /* ClumsyScoreHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClumsyScoreHandler.swift; sourceTree = "<group>"; };
+		5723C6291991257200B6087F /* ClumsyScoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClumsyScoreView.swift; sourceTree = "<group>"; };
+		5723C62A1991257200B6087F /* ClumsyShake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClumsyShake.swift; sourceTree = "<group>"; };
+		5723C62B1991257200B6087F /* ClumsySocialButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClumsySocialButton.swift; sourceTree = "<group>"; };
+		5723C62C1991257200B6087F /* ClumsySocialHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClumsySocialHandler.swift; sourceTree = "<group>"; };
+		5723C62D1991257200B6087F /* ClumsySwipeGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClumsySwipeGestureRecognizer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +102,11 @@
 			isa = PBXGroup;
 			children = (
 				5723C600199123C400B6087F /* AppDelegate.swift */,
-				5723C605199123C400B6087F /* ViewController.swift */,
-				5723C607199123C400B6087F /* Main.storyboard */,
+				57583F8E19912BF100B6ED85 /* MainViewController */,
+				57583F9119912C3600B6ED85 /* Actions */,
+				57583F9019912C1A00B6ED85 /* Models */,
+				57583F8F19912C0500B6ED85 /* ScoreView */,
+				57583F9319912C5200B6ED85 /* Social */,
 				5723C60A199123C500B6087F /* Images.xcassets */,
 				5723C602199123C400B6087F /* ClumsySwift.xcdatamodeld */,
 				5723C5FE199123C400B6087F /* Supporting Files */,
@@ -110,6 +137,55 @@
 				5723C615199123C500B6087F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		57583F8E19912BF100B6ED85 /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5723C6251991257200B6087F /* ClumsyMainViewController.swift */,
+				5723C6211991257200B6087F /* ClumsyActionView.swift */,
+				5723C6241991257200B6087F /* ClumsyMainView.swift */,
+				5723C6271991257200B6087F /* ClumsyProgressBar.swift */,
+			);
+			name = MainViewController;
+			sourceTree = "<group>";
+		};
+		57583F8F19912C0500B6ED85 /* ScoreView */ = {
+			isa = PBXGroup;
+			children = (
+				5723C6261991257200B6087F /* ClumsyOkButton.swift */,
+				5723C6291991257200B6087F /* ClumsyScoreView.swift */,
+			);
+			name = ScoreView;
+			sourceTree = "<group>";
+		};
+		57583F9019912C1A00B6ED85 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5723C6221991257200B6087F /* ClumsyEngine.swift */,
+				5723C6281991257200B6087F /* ClumsyScoreHandler.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		57583F9119912C3600B6ED85 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				5723C6201991257200B6087F /* ClumsyActions.swift */,
+				5723C6231991257200B6087F /* ClumsyMainButton.swift */,
+				5723C62A1991257200B6087F /* ClumsyShake.swift */,
+				5723C62D1991257200B6087F /* ClumsySwipeGestureRecognizer.swift */,
+			);
+			name = Actions;
+			sourceTree = "<group>";
+		};
+		57583F9319912C5200B6ED85 /* Social */ = {
+			isa = PBXGroup;
+			children = (
+				5723C62B1991257200B6087F /* ClumsySocialButton.swift */,
+				5723C62C1991257200B6087F /* ClumsySocialHandler.swift */,
+			);
+			name = Social;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +237,7 @@
 				TargetAttributes = {
 					5723C5FA199123C400B6087F = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = 94TWQJ7GSF;
 					};
 					5723C60F199123C500B6087F = {
 						CreatedOnToolsVersion = 6.0;
@@ -192,7 +269,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5723C609199123C500B6087F /* Main.storyboard in Resources */,
 				5723C60B199123C500B6087F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,9 +287,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5723C606199123C400B6087F /* ViewController.swift in Sources */,
+				5723C6371991257200B6087F /* ClumsyScoreView.swift in Sources */,
+				5723C6391991257200B6087F /* ClumsySocialButton.swift in Sources */,
+				5723C6361991257200B6087F /* ClumsyScoreHandler.swift in Sources */,
+				5723C62E1991257200B6087F /* ClumsyActions.swift in Sources */,
+				5723C6321991257200B6087F /* ClumsyMainView.swift in Sources */,
+				5723C6331991257200B6087F /* ClumsyMainViewController.swift in Sources */,
+				5723C6341991257200B6087F /* ClumsyOkButton.swift in Sources */,
+				5723C6381991257200B6087F /* ClumsyShake.swift in Sources */,
+				5723C6311991257200B6087F /* ClumsyMainButton.swift in Sources */,
 				5723C604199123C400B6087F /* ClumsySwift.xcdatamodeld in Sources */,
 				5723C601199123C400B6087F /* AppDelegate.swift in Sources */,
+				5723C6301991257200B6087F /* ClumsyEngine.swift in Sources */,
+				5723C62F1991257200B6087F /* ClumsyActionView.swift in Sources */,
+				5723C63B1991257200B6087F /* ClumsySwipeGestureRecognizer.swift in Sources */,
+				5723C6351991257200B6087F /* ClumsyProgressBar.swift in Sources */,
+				5723C63A1991257200B6087F /* ClumsySocialHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,17 +323,6 @@
 			targetProxy = 5723C611199123C500B6087F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		5723C607199123C400B6087F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5723C608199123C500B6087F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		5723C618199123C500B6087F /* Debug */ = {
@@ -331,7 +409,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ClumsySwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -342,7 +422,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ClumsySwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -401,6 +483,7 @@
 				5723C61C199123C500B6087F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5723C61D199123C500B6087F /* Build configuration list for PBXNativeTarget "ClumsySwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -409,6 +492,7 @@
 				5723C61F199123C500B6087F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
