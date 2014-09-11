@@ -36,7 +36,7 @@ class ClumsyScoreView: UIView, ClumsyOkButtonDelegate, ClumsySocialButtonDelegat
     self.bestScore = scoreHandler.bestScore()
     
     var scoreView = UIImageView(frame: frame)
-    scoreView.image = imageScoreViewWithScore("\(score)", best:"\(bestScore)", newHighscore: isNewHighscore)
+    scoreView.image = imageScoreViewWithScore("\(self.score)", best:"\(self.bestScore)", newHighscore: isNewHighscore)
     scoreView.contentMode = UIViewContentMode.ScaleAspectFit
 
     var okButton = ClumsyOkButton(frame: CGRectMake(frame.width*0.7028, frame.height*0.7817, frame.width*0.2626, frame.width*0.18125),

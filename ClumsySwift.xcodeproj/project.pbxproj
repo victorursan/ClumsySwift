@@ -24,8 +24,9 @@
 		5723C6391991257200B6087F /* ClumsySocialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5723C62B1991257200B6087F /* ClumsySocialButton.swift */; };
 		5723C63A1991257200B6087F /* ClumsySocialHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5723C62C1991257200B6087F /* ClumsySocialHandler.swift */; };
 		5723C63B1991257200B6087F /* ClumsySwipeGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5723C62D1991257200B6087F /* ClumsySwipeGestureRecognizer.swift */; };
-		57447FE119C19E2900026F2B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57447FE019C19E2900026F2B /* Images.xcassets */; };
 		57447FE319C1A36B00026F2B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57447FE219C1A36B00026F2B /* Constants.swift */; };
+		5744800719C1C2DE00026F2B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5744800119C1B98400026F2B /* Images.xcassets */; };
+		5744800819C1C2DF00026F2B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5744800119C1B98400026F2B /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,8 +61,8 @@
 		5723C62B1991257200B6087F /* ClumsySocialButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClumsySocialButton.swift; sourceTree = "<group>"; };
 		5723C62C1991257200B6087F /* ClumsySocialHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClumsySocialHandler.swift; sourceTree = "<group>"; };
 		5723C62D1991257200B6087F /* ClumsySwipeGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClumsySwipeGestureRecognizer.swift; sourceTree = "<group>"; };
-		57447FE019C19E2900026F2B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		57447FE219C1A36B00026F2B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = ../Constants.swift; sourceTree = "<group>"; };
+		5744800119C1B98400026F2B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,8 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				5723C602199123C400B6087F /* ClumsySwift.xcdatamodeld */,
-				57447FE019C19E2900026F2B /* Images.xcassets */,
 				57447FE219C1A36B00026F2B /* Constants.swift */,
+				5744800119C1B98400026F2B /* Images.xcassets */,
 				5723C5FF199123C400B6087F /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -272,7 +273,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57447FE119C19E2900026F2B /* Images.xcassets in Resources */,
+				5744800719C1C2DE00026F2B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +281,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5744800819C1C2DF00026F2B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,7 +365,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -400,7 +402,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
