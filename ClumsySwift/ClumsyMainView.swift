@@ -35,8 +35,11 @@ class ClumsyMainView: UIView {
   
   private func initializeColorList() {
     let colorGradientList: [[CGColor]] = [
-      [UIColor(red: 1.000, green: 0.114, blue: 0.114, alpha: 1.000).CGColor,
-        UIColor(red: 1.000, green: 0.574, blue: 0.000, alpha: 1.000).CGColor,
+      [UIColor(red: 0.000, green: 0.982, blue: 1.000, alpha: 1.000).CGColor,
+        UIColor(red: 0.019, green: 0.000, blue: 1.000, alpha: 1.000).CGColor,
+        UIColor(red: 0.010, green: 0.491, blue: 1.000, alpha: 1.000).CGColor],
+      [ UIColor(red: 1.000, green: 0.574, blue: 0.000, alpha: 1.000).CGColor,
+        UIColor(red: 1.000, green: 0.114, blue: 0.114, alpha: 1.000).CGColor,
         UIColor(red: 1.000, green: 0.344, blue: 0.057, alpha: 1.000).CGColor],
       [UIColor(red: 0.794, green: 0.382, blue: 1.000, alpha: 1.000).CGColor,
         UIColor(red: 0.479, green: 0.000, blue: 0.718, alpha: 1.000).CGColor,
@@ -55,17 +58,14 @@ class ClumsyMainView: UIView {
         UIColor(red: 0.040, green: 0.839, blue: 0.000, alpha: 1.000).CGColor],
       [UIColor(red: 1.000, green: 0.730, blue: 0.000, alpha: 1.000).CGColor,
         UIColor(red: 1.000, green: 0.487, blue: 0.000, alpha: 1.000).CGColor,
-        UIColor(red: 1.000, green: 0.609, blue: 0.000, alpha: 1.000).CGColor],
-      [UIColor(red: 0.000, green: 0.539, blue: 1.000, alpha: 1.000).CGColor,
-        UIColor(red: 0.001, green: 0.001, blue: 0.704, alpha: 1.000).CGColor,
-        UIColor(red: 0.001, green: 0.270, blue: 0.852, alpha: 1.000).CGColor]]
+        UIColor(red: 1.000, green: 0.609, blue: 0.000, alpha: 1.000).CGColor]]
     
     colorList = colorGradientList.map{(gradientColors: [CGColor]) -> (UIColor) in
       UIGraphicsBeginImageContextWithOptions(self.frame.size, false, 0)
       let context = UIGraphicsGetCurrentContext()
       let gradient = CGGradientCreateWithColors(CGColorSpaceCreateDeviceRGB(),
         [gradientColors[0],gradientColors[2],gradientColors[1],gradientColors[2],gradientColors[0]],
-        [0, 0.21, 0.5, 0.8, 1])
+        [0, 0.2, 0.5, 0.8, 1])
       let rectanglePath = UIBezierPath(rect:self.frame)
       CGContextSaveGState(context)
       rectanglePath.addClip()

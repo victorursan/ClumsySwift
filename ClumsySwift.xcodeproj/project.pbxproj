@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		5723C601199123C400B6087F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5723C600199123C400B6087F /* AppDelegate.swift */; };
 		5723C604199123C400B6087F /* ClumsySwift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5723C602199123C400B6087F /* ClumsySwift.xcdatamodeld */; };
-		5723C60B199123C500B6087F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5723C60A199123C500B6087F /* Images.xcassets */; };
 		5723C617199123C500B6087F /* ClumsySwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5723C616199123C500B6087F /* ClumsySwiftTests.swift */; };
 		5723C62E1991257200B6087F /* ClumsyActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5723C6201991257200B6087F /* ClumsyActions.swift */; };
 		5723C62F1991257200B6087F /* ClumsyActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5723C6211991257200B6087F /* ClumsyActionView.swift */; };
@@ -25,6 +24,8 @@
 		5723C6391991257200B6087F /* ClumsySocialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5723C62B1991257200B6087F /* ClumsySocialButton.swift */; };
 		5723C63A1991257200B6087F /* ClumsySocialHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5723C62C1991257200B6087F /* ClumsySocialHandler.swift */; };
 		5723C63B1991257200B6087F /* ClumsySwipeGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5723C62D1991257200B6087F /* ClumsySwipeGestureRecognizer.swift */; };
+		57447FE119C19E2900026F2B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57447FE019C19E2900026F2B /* Images.xcassets */; };
+		57447FE319C1A36B00026F2B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57447FE219C1A36B00026F2B /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +43,6 @@
 		5723C5FF199123C400B6087F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5723C600199123C400B6087F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5723C603199123C400B6087F /* ClumsySwift.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ClumsySwift.xcdatamodel; sourceTree = "<group>"; };
-		5723C60A199123C500B6087F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5723C610199123C500B6087F /* ClumsySwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClumsySwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5723C615199123C500B6087F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5723C616199123C500B6087F /* ClumsySwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClumsySwiftTests.swift; sourceTree = "<group>"; };
@@ -60,6 +60,8 @@
 		5723C62B1991257200B6087F /* ClumsySocialButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClumsySocialButton.swift; sourceTree = "<group>"; };
 		5723C62C1991257200B6087F /* ClumsySocialHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClumsySocialHandler.swift; sourceTree = "<group>"; };
 		5723C62D1991257200B6087F /* ClumsySwipeGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClumsySwipeGestureRecognizer.swift; sourceTree = "<group>"; };
+		57447FE019C19E2900026F2B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		57447FE219C1A36B00026F2B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = ../Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,8 +109,6 @@
 				57583F9019912C1A00B6ED85 /* Models */,
 				57583F8F19912C0500B6ED85 /* ScoreView */,
 				57583F9319912C5200B6ED85 /* Social */,
-				5723C60A199123C500B6087F /* Images.xcassets */,
-				5723C602199123C400B6087F /* ClumsySwift.xcdatamodeld */,
 				5723C5FE199123C400B6087F /* Supporting Files */,
 			);
 			path = ClumsySwift;
@@ -117,6 +117,9 @@
 		5723C5FE199123C400B6087F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5723C602199123C400B6087F /* ClumsySwift.xcdatamodeld */,
+				57447FE019C19E2900026F2B /* Images.xcassets */,
+				57447FE219C1A36B00026F2B /* Constants.swift */,
 				5723C5FF199123C400B6087F /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -269,7 +272,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5723C60B199123C500B6087F /* Images.xcassets in Resources */,
+				57447FE119C19E2900026F2B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5723C6371991257200B6087F /* ClumsyScoreView.swift in Sources */,
+				57447FE319C1A36B00026F2B /* Constants.swift in Sources */,
 				5723C6391991257200B6087F /* ClumsySocialButton.swift in Sources */,
 				5723C6361991257200B6087F /* ClumsyScoreHandler.swift in Sources */,
 				5723C62E1991257200B6087F /* ClumsyActions.swift in Sources */,

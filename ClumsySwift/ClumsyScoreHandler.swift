@@ -19,7 +19,7 @@ class ClumsyScoreHandler: NSObject {
     context = appDel.managedObjectContext!
     var request = NSFetchRequest(entityName: "ClumsyScore")
     request.returnsObjectsAsFaults = false
-    var scoreArray:NSArray = context.executeFetchRequest(request, error: &error)
+    var scoreArray:NSArray = context.executeFetchRequest(request, error: &error)!
     
     if (scoreArray.count > 0) {
       score = scoreArray[0].valueForKey("bestScore") as Int
@@ -38,7 +38,7 @@ class ClumsyScoreHandler: NSObject {
       var error: NSError?
       var request = NSFetchRequest(entityName: "ClumsyScore")
       request.returnsObjectsAsFaults = false
-      var scoreArray:NSArray = context.executeFetchRequest(request, error: &error)
+      var scoreArray:NSArray = context.executeFetchRequest(request, error: &error)!
       scoreArray[0].setValue(score, forKey: "bestScore")
       context.save(&error)
       self.score = score

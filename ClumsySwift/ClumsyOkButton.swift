@@ -14,8 +14,8 @@ protocol ClumsyOkButtonDelegate {
 
 class ClumsyOkButton: UIButton {
   
-  required init(coder aDecoder: NSCoder!) {
-    super.init(coder: aDecoder)
+  required init(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
   }
   
   init(frame: CGRect, target: AnyObject) {
@@ -25,7 +25,7 @@ class ClumsyOkButton: UIButton {
     addTarget(target, action: "okButtonPressed", forControlEvents: .TouchUpInside)
     contentMode = .ScaleAspectFit
   }
-  
+
   private func imageForOkButtonState(state: UIControlState) -> UIImage {
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(145, 100), false, 0)
     drawOkButton(state)

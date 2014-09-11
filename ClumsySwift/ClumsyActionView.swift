@@ -10,7 +10,7 @@ import UIKit
 
 class ClumsyActionView: UIView {
   
-  private var actionDictionary: [Action:UIImage] = Dictionary()
+  private var actionDictionary: [Action : UIImage] = Dictionary()
   private var currentImageView: UIImageView
   var action: Action?
   
@@ -69,7 +69,7 @@ class ClumsyActionView: UIView {
       let startStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
       startStyle.alignment = NSTextAlignment.Center;
       
-      let startFontAttributes = [NSFontAttributeName: UIFont(name: "Helvetica", size: 150), NSForegroundColorAttributeName: fillColor, NSParagraphStyleAttributeName: startStyle]
+      let startFontAttributes = [NSFontAttributeName: UIFont(name: clumsyFont, size: 150), NSForegroundColorAttributeName: fillColor, NSParagraphStyleAttributeName: startStyle]
       
       startTextContent.drawInRect(CGRectOffset(startRect,0,
         (startRect.height - startTextContent.boundingRectWithSize(startRect.size,
@@ -86,7 +86,7 @@ class ClumsyActionView: UIView {
       let swipeStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
       swipeStyle.alignment = NSTextAlignment.Center;
       
-      let swipeFontAttributes = [NSFontAttributeName: UIFont(name: "Helvetica", size: 110), NSForegroundColorAttributeName: fillColor, NSParagraphStyleAttributeName: swipeStyle]
+      let swipeFontAttributes = [NSFontAttributeName: UIFont(name: clumsyFont, size: 110), NSForegroundColorAttributeName: fillColor, NSParagraphStyleAttributeName: swipeStyle]
       
       swipeTextContent.drawInRect(CGRectOffset(swipeRect, 0, (swipeRect.height - swipeTextContent.boundingRectWithSize(swipeRect.size, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: swipeFontAttributes, context: nil).size.height) / 2), withAttributes: swipeFontAttributes);
       CGContextRestoreGState(context)
@@ -124,7 +124,7 @@ class ClumsyActionView: UIView {
       let swipeStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
       swipeStyle.alignment = NSTextAlignment.Center;
       
-      let swipeFontAttributes = [NSFontAttributeName: UIFont(name: "Helvetica", size: 110), NSForegroundColorAttributeName: fillColor, NSParagraphStyleAttributeName: swipeStyle]
+      let swipeFontAttributes = [NSFontAttributeName: UIFont(name: clumsyFont, size: 110), NSForegroundColorAttributeName: fillColor, NSParagraphStyleAttributeName: swipeStyle]
       
       swipeTextContent.drawInRect(CGRectOffset(swipeRect, 0, (swipeRect.height - swipeTextContent.boundingRectWithSize(swipeRect.size, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: swipeFontAttributes, context: nil).size.height) / 2), withAttributes: swipeFontAttributes);
       CGContextRestoreGState(context)
@@ -162,7 +162,7 @@ class ClumsyActionView: UIView {
       let swipeStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
       swipeStyle.alignment = NSTextAlignment.Center;
       
-      let swipeFontAttributes = [NSFontAttributeName: UIFont(name: "Helvetica", size: 110), NSForegroundColorAttributeName: fillColor, NSParagraphStyleAttributeName: swipeStyle]
+      let swipeFontAttributes = [NSFontAttributeName: UIFont(name: clumsyFont, size: 110), NSForegroundColorAttributeName: fillColor, NSParagraphStyleAttributeName: swipeStyle]
       
       swipeTextContent.drawInRect(CGRectOffset(swipeRect, 0, (swipeRect.height - swipeTextContent.boundingRectWithSize(swipeRect.size, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: swipeFontAttributes, context: nil).size.height) / 2), withAttributes: swipeFontAttributes);
       CGContextRestoreGState(context)
@@ -200,7 +200,7 @@ class ClumsyActionView: UIView {
       let swipeStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
       swipeStyle.alignment = NSTextAlignment.Center;
       
-      let swipeFontAttributes = [NSFontAttributeName: UIFont(name: "Helvetica", size: 110), NSForegroundColorAttributeName: fillColor, NSParagraphStyleAttributeName: swipeStyle]
+      let swipeFontAttributes = [NSFontAttributeName: UIFont(name: clumsyFont, size: 110), NSForegroundColorAttributeName: fillColor, NSParagraphStyleAttributeName: swipeStyle]
       
       swipeTextContent.drawInRect(CGRectOffset(swipeRect, 0, (swipeRect.height - swipeTextContent.boundingRectWithSize(swipeRect.size, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: swipeFontAttributes, context: nil).size.height) / 2), withAttributes: swipeFontAttributes);
       CGContextRestoreGState(context)
@@ -238,7 +238,7 @@ class ClumsyActionView: UIView {
       let shakeStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
       shakeStyle.alignment = NSTextAlignment.Center;
       
-      let shakeFontAttributes = [NSFontAttributeName: UIFont(name: "Helvetica", size: 110), NSForegroundColorAttributeName: fillColor, NSParagraphStyleAttributeName: shakeStyle]
+      let shakeFontAttributes = [NSFontAttributeName: UIFont(name: clumsyFont, size: 110), NSForegroundColorAttributeName: fillColor, NSParagraphStyleAttributeName: shakeStyle]
       
       shakeTextContent.drawInRect(CGRectOffset(shakeRect, 0, (shakeRect.height - shakeTextContent.boundingRectWithSize(shakeRect.size, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: shakeFontAttributes, context: nil).size.height) / 2), withAttributes: shakeFontAttributes);
       CGContextRestoreGState(context)
@@ -252,7 +252,7 @@ class ClumsyActionView: UIView {
       let tapStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
       tapStyle.alignment = NSTextAlignment.Center;
       
-      let tapFontAttributes = [NSFontAttributeName: UIFont(name: "Helvetica", size: 110), NSForegroundColorAttributeName: fillColor, NSParagraphStyleAttributeName: tapStyle]
+      let tapFontAttributes = [NSFontAttributeName: UIFont(name: clumsyFont, size: 110), NSForegroundColorAttributeName: fillColor, NSParagraphStyleAttributeName: tapStyle]
       
       tapTextContent.drawInRect(CGRectOffset(tapRect, 0, (tapRect.height - tapTextContent.boundingRectWithSize(tapRect.size, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: tapFontAttributes, context: nil).size.height) / 2), withAttributes: tapFontAttributes);
       CGContextRestoreGState(context)
@@ -266,7 +266,7 @@ class ClumsyActionView: UIView {
       let doubleTapStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
       doubleTapStyle.alignment = NSTextAlignment.Center;
       
-      let doubleTapFontAttributes = [NSFontAttributeName: UIFont(name: "Helvetica", size: 110), NSForegroundColorAttributeName: fillColor, NSParagraphStyleAttributeName: doubleTapStyle]
+      let doubleTapFontAttributes = [NSFontAttributeName: UIFont(name: clumsyFont, size: 110), NSForegroundColorAttributeName: fillColor, NSParagraphStyleAttributeName: doubleTapStyle]
       
       doubleTapTextContent.drawInRect(CGRectOffset(doubleTapRect, 0, (doubleTapRect.height - doubleTapTextContent.boundingRectWithSize(doubleTapRect.size, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: doubleTapFontAttributes, context: nil).size.height) / 2), withAttributes: doubleTapFontAttributes);
       CGContextRestoreGState(context)

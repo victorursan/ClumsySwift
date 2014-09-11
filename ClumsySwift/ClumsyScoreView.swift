@@ -109,8 +109,7 @@ class ClumsyScoreView: UIView, ClumsyOkButtonDelegate, ClumsySocialButtonDelegat
     let clumsyTextStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
     clumsyTextStyle.alignment = NSTextAlignment.Center;
     
-    let clumsyTextFontAttributes = [NSFontAttributeName: UIFont(name: "Helvetica", size: 150), NSForegroundColorAttributeName: fillColor, NSParagraphStyleAttributeName: clumsyTextStyle]
-    
+    let clumsyTextFontAttributes = [NSFontAttributeName: UIFont(name: clumsyFont, size: 150), NSForegroundColorAttributeName: fillColor, NSParagraphStyleAttributeName: clumsyTextStyle]
     "Clumsy".drawInRect(clumsyTextRect, withAttributes: clumsyTextFontAttributes);
     CGContextRestoreGState(context)
     
@@ -122,7 +121,7 @@ class ClumsyScoreView: UIView, ClumsyOkButtonDelegate, ClumsySocialButtonDelegat
     let scoreTextStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
     scoreTextStyle.alignment = NSTextAlignment.Center;
     
-    let scoreTextFontAttributes = [NSFontAttributeName: UIFont(name: "Helvetica", size: 40), NSForegroundColorAttributeName: color31, NSParagraphStyleAttributeName: scoreTextStyle]
+    let scoreTextFontAttributes = [NSFontAttributeName: UIFont(name: clumsyFont, size: 40), NSForegroundColorAttributeName: color31, NSParagraphStyleAttributeName: scoreTextStyle]
     
     scoreTextTextContent.drawInRect(CGRectOffset(scoreTextRect, 0, (scoreTextRect.height - scoreTextTextContent.boundingRectWithSize(scoreTextRect.size, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: scoreTextFontAttributes, context: nil).size.height) / 2), withAttributes: scoreTextFontAttributes);
     
@@ -133,7 +132,7 @@ class ClumsyScoreView: UIView, ClumsyOkButtonDelegate, ClumsySocialButtonDelegat
     let bestTextStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
     bestTextStyle.alignment = NSTextAlignment.Center;
     
-    let bestTextFontAttributes = [NSFontAttributeName: UIFont(name: "Helvetica", size: 40), NSForegroundColorAttributeName: color31, NSParagraphStyleAttributeName: bestTextStyle]
+    let bestTextFontAttributes = [NSFontAttributeName: UIFont(name: clumsyFont, size: 40), NSForegroundColorAttributeName: color31, NSParagraphStyleAttributeName: bestTextStyle]
     
     bestTextTextContent.drawInRect(CGRectOffset(bestTextRect, 0, (bestTextRect.height - bestTextTextContent.boundingRectWithSize(bestTextRect.size, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: bestTextFontAttributes, context: nil).size.height) / 2), withAttributes: bestTextFontAttributes);
     
@@ -150,7 +149,7 @@ class ClumsyScoreView: UIView, ClumsyOkButtonDelegate, ClumsySocialButtonDelegat
       let newTextStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
       newTextStyle.alignment = NSTextAlignment.Center;
       
-      let newTextFontAttributes = [NSFontAttributeName: UIFont(name: "Helvetica-Bold", size: 35), NSForegroundColorAttributeName: fillColor, NSParagraphStyleAttributeName: newTextStyle]
+      let newTextFontAttributes = [NSFontAttributeName: UIFont(name: clumsyFontBold, size: 35), NSForegroundColorAttributeName: fillColor, NSParagraphStyleAttributeName: newTextStyle]
       
       newTextTextContent.drawInRect(CGRectOffset(newTextRect, 0, (newTextRect.height - newTextTextContent.boundingRectWithSize(newTextRect.size, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: newTextFontAttributes, context: nil).size.height) / 2), withAttributes: newTextFontAttributes);
     }
@@ -160,7 +159,7 @@ class ClumsyScoreView: UIView, ClumsyOkButtonDelegate, ClumsySocialButtonDelegat
     let scoreLabelStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
     scoreLabelStyle.alignment = NSTextAlignment.Center;
     
-    let scoreLabelFontAttributes = [NSFontAttributeName: UIFont(name: "Helvetica", size: 80), NSForegroundColorAttributeName: fillColor, NSParagraphStyleAttributeName: scoreLabelStyle]
+    let scoreLabelFontAttributes = [NSFontAttributeName: UIFont(name: clumsyFont, size: 80), NSForegroundColorAttributeName: fillColor, NSParagraphStyleAttributeName: scoreLabelStyle]
     
     NSString(string: score).drawInRect(CGRectOffset(scoreLabelRect, 0, (scoreLabelRect.height - NSString(string: score).boundingRectWithSize(scoreLabelRect.size, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: scoreLabelFontAttributes, context: nil).size.height) / 2), withAttributes: scoreLabelFontAttributes);
     
@@ -170,7 +169,7 @@ class ClumsyScoreView: UIView, ClumsyOkButtonDelegate, ClumsySocialButtonDelegat
     let bestScoreLabelStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
     bestScoreLabelStyle.alignment = NSTextAlignment.Center;
     
-    let bestScoreLabelFontAttributes = [NSFontAttributeName: UIFont(name: "Helvetica", size: 80), NSForegroundColorAttributeName: fillColor, NSParagraphStyleAttributeName: bestScoreLabelStyle]
+    let bestScoreLabelFontAttributes = [NSFontAttributeName: UIFont(name: clumsyFont, size: 80), NSForegroundColorAttributeName: fillColor, NSParagraphStyleAttributeName: bestScoreLabelStyle]
     
     NSString(string: best).drawInRect(CGRectOffset(bestScoreLabelRect, 0, (bestScoreLabelRect.height - NSString(string: best).boundingRectWithSize(bestScoreLabelRect.size, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: bestScoreLabelFontAttributes, context: nil).size.height) / 2), withAttributes: bestScoreLabelFontAttributes);
   }

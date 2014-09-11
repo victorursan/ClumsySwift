@@ -35,7 +35,7 @@ class ClumsyMainViewController: UIViewController, ClumsyMainButtonDelegate, Clum
     engine = ClumsyEngine(target: self)
     shake = ClumsyShake(target: self)
 
-    view = mainView
+    view = mainView!
     view.addSubview(actionView!)
     view.addSubview(mainButton!)
     view.addSubview(progressBar!)
