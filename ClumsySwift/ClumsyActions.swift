@@ -40,7 +40,7 @@ enum Action:Int {
 }
 
 internal func randomAction()->Action {
-  return Action.fromRaw(Int(arc4random()%7+1))!
+  return Action(rawValue: Int(arc4random()%7+1))!
 }
 
 let allActions: [Action] = [.Start, .SwipeRight, .SwipeLeft, .SwipeUp, .SwipeDown, .Shake, .Tap, .DoubleTap]
