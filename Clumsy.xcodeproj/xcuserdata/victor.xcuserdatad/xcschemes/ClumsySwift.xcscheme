@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5723C5FA199123C400B6087F"
-               BuildableName = "ClumsySwift.app"
-               BlueprintName = "ClumsySwift"
-               ReferencedContainer = "container:ClumsySwift.xcodeproj">
+               BuildableName = "Clumsy.app"
+               BlueprintName = "Clumsy"
+               ReferencedContainer = "container:Clumsy.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5723C60F199123C500B6087F"
-               BuildableName = "ClumsySwiftTests.xctest"
-               BlueprintName = "ClumsySwiftTests"
-               ReferencedContainer = "container:ClumsySwift.xcodeproj">
+               BuildableName = "ClumsyTests.xctest"
+               BlueprintName = "ClumsyTests"
+               ReferencedContainer = "container:Clumsy.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5723C60F199123C500B6087F"
-               BuildableName = "ClumsySwiftTests.xctest"
-               BlueprintName = "ClumsySwiftTests"
-               ReferencedContainer = "container:ClumsySwift.xcodeproj">
+               BuildableName = "ClumsyTests.xctest"
+               BlueprintName = "ClumsyTests"
+               ReferencedContainer = "container:Clumsy.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5723C5FA199123C400B6087F"
-            BuildableName = "ClumsySwift.app"
-            BlueprintName = "ClumsySwift"
-            ReferencedContainer = "container:ClumsySwift.xcodeproj">
+            BuildableName = "Clumsy.app"
+            BlueprintName = "Clumsy"
+            ReferencedContainer = "container:Clumsy.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5723C5FA199123C400B6087F"
-            BuildableName = "ClumsySwift.app"
-            BlueprintName = "ClumsySwift"
-            ReferencedContainer = "container:ClumsySwift.xcodeproj">
+            BuildableName = "Clumsy.app"
+            BlueprintName = "Clumsy"
+            ReferencedContainer = "container:Clumsy.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5723C5FA199123C400B6087F"
-            BuildableName = "ClumsySwift.app"
-            BlueprintName = "ClumsySwift"
-            ReferencedContainer = "container:ClumsySwift.xcodeproj">
+            BuildableName = "Clumsy.app"
+            BlueprintName = "Clumsy"
+            ReferencedContainer = "container:Clumsy.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -40,11 +40,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5723C5FB199123C400B6087F /* ClumsySwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClumsySwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5723C5FB199123C400B6087F /* Clumsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clumsy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5723C5FF199123C400B6087F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5723C600199123C400B6087F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5723C603199123C400B6087F /* ClumsySwift.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ClumsySwift.xcdatamodel; sourceTree = "<group>"; };
-		5723C610199123C500B6087F /* ClumsySwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClumsySwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5723C610199123C500B6087F /* ClumsyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClumsyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5723C615199123C500B6087F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5723C616199123C500B6087F /* ClumsySwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClumsySwiftTests.swift; sourceTree = "<group>"; };
 		5723C6201991257200B6087F /* ClumsyActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClumsyActions.swift; sourceTree = "<group>"; };
@@ -95,8 +95,8 @@
 		5723C5FC199123C400B6087F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5723C5FB199123C400B6087F /* ClumsySwift.app */,
-				5723C610199123C500B6087F /* ClumsySwiftTests.xctest */,
+				5723C5FB199123C400B6087F /* Clumsy.app */,
+				5723C610199123C500B6087F /* ClumsyTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -195,9 +195,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5723C5FA199123C400B6087F /* ClumsySwift */ = {
+		5723C5FA199123C400B6087F /* Clumsy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5723C61A199123C500B6087F /* Build configuration list for PBXNativeTarget "ClumsySwift" */;
+			buildConfigurationList = 5723C61A199123C500B6087F /* Build configuration list for PBXNativeTarget "Clumsy" */;
 			buildPhases = (
 				5723C5F7199123C400B6087F /* Sources */,
 				5723C5F8199123C400B6087F /* Frameworks */,
@@ -207,14 +207,14 @@
 			);
 			dependencies = (
 			);
-			name = ClumsySwift;
+			name = Clumsy;
 			productName = ClumsySwift;
-			productReference = 5723C5FB199123C400B6087F /* ClumsySwift.app */;
+			productReference = 5723C5FB199123C400B6087F /* Clumsy.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5723C60F199123C500B6087F /* ClumsySwiftTests */ = {
+		5723C60F199123C500B6087F /* ClumsyTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5723C61D199123C500B6087F /* Build configuration list for PBXNativeTarget "ClumsySwiftTests" */;
+			buildConfigurationList = 5723C61D199123C500B6087F /* Build configuration list for PBXNativeTarget "ClumsyTests" */;
 			buildPhases = (
 				5723C60C199123C500B6087F /* Sources */,
 				5723C60D199123C500B6087F /* Frameworks */,
@@ -225,9 +225,9 @@
 			dependencies = (
 				5723C612199123C500B6087F /* PBXTargetDependency */,
 			);
-			name = ClumsySwiftTests;
+			name = ClumsyTests;
 			productName = ClumsySwiftTests;
-			productReference = 5723C610199123C500B6087F /* ClumsySwiftTests.xctest */;
+			productReference = 5723C610199123C500B6087F /* ClumsyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -249,7 +249,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5723C5F6199123C400B6087F /* Build configuration list for PBXProject "ClumsySwift" */;
+			buildConfigurationList = 5723C5F6199123C400B6087F /* Build configuration list for PBXProject "Clumsy" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -262,8 +262,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5723C5FA199123C400B6087F /* ClumsySwift */,
-				5723C60F199123C500B6087F /* ClumsySwiftTests */,
+				5723C5FA199123C400B6087F /* Clumsy */,
+				5723C60F199123C500B6087F /* ClumsyTests */,
 			);
 		};
 /* End PBXProject section */
@@ -325,7 +325,7 @@
 /* Begin PBXTargetDependency section */
 		5723C612199123C500B6087F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5723C5FA199123C400B6087F /* ClumsySwift */;
+			target = 5723C5FA199123C400B6087F /* Clumsy */;
 			targetProxy = 5723C611199123C500B6087F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -416,10 +416,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ClumsySwift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Clumsy;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -429,10 +431,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ClumsySwift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Clumsy;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -450,8 +454,8 @@
 				);
 				INFOPLIST_FILE = ClumsySwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ClumsySwift.app/ClumsySwift";
+				PRODUCT_NAME = ClumsyTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Clumsy.app/Clumsy";
 			};
 			name = Debug;
 		};
@@ -465,15 +469,15 @@
 				);
 				INFOPLIST_FILE = ClumsySwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ClumsySwift.app/ClumsySwift";
+				PRODUCT_NAME = ClumsyTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Clumsy.app/Clumsy";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5723C5F6199123C400B6087F /* Build configuration list for PBXProject "ClumsySwift" */ = {
+		5723C5F6199123C400B6087F /* Build configuration list for PBXProject "Clumsy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5723C618199123C500B6087F /* Debug */,
@@ -482,7 +486,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5723C61A199123C500B6087F /* Build configuration list for PBXNativeTarget "ClumsySwift" */ = {
+		5723C61A199123C500B6087F /* Build configuration list for PBXNativeTarget "Clumsy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5723C61B199123C500B6087F /* Debug */,
@@ -491,7 +495,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5723C61D199123C500B6087F /* Build configuration list for PBXNativeTarget "ClumsySwiftTests" */ = {
+		5723C61D199123C500B6087F /* Build configuration list for PBXNativeTarget "ClumsyTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5723C61E199123C500B6087F /* Debug */,
