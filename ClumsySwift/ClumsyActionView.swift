@@ -9,15 +9,15 @@
 import UIKit
 
 class ClumsyActionView: UIView {
-  
+
   private var actionDictionary: [Action : UIImage] = Dictionary()
   private var currentImageView: UIImageView
   var action: Action?
-  
+
   required init(coder: NSCoder) {
     fatalError("NSCoding not supported")
   }
-  
+
   override init(frame: CGRect) {
     currentImageView = UIImageView(frame: frame)
     super.init(frame: frame)
@@ -26,11 +26,11 @@ class ClumsyActionView: UIView {
     currentImageView.center = center
     addSubview(currentImageView)
   }
-  
+
   override func didMoveToSuperview() {
     center = superview!.center
   }
-  
+
   internal func viewForAction(action: Action) {
     self.action = action
     currentImageView.removeFromSuperview()
@@ -38,7 +38,7 @@ class ClumsyActionView: UIView {
     currentImageView.contentMode = UIViewContentMode.ScaleAspectFit
     addSubview(currentImageView)
   }
-  
+
   private func imageForContextAction(action: Action) -> UIImage {
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(380, 450), false, 0)
     drawRectImageFor(action)
@@ -46,19 +46,19 @@ class ClumsyActionView: UIView {
     UIGraphicsEndImageContext()
     return image
   }
-  
+
   private func drawRectImageFor(action: Action) {
     //// General Declarations
     let context = UIGraphicsGetCurrentContext()
     let contextFrame = CGRectMake(0,0,380, 450)
     //// Color Declarations
     let fillColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
-    
+
     //// Shadow Declarations
     let textShadow = fillColor
     let textShadowOffset = CGSizeMake(0.1, -0.1)
     let textShadowBlurRadius: CGFloat = 5
-    
+
     switch action {
     case .Start:
       //// Start Drawing
@@ -68,11 +68,11 @@ class ClumsyActionView: UIView {
       CGContextSetShadowWithColor(context, textShadowOffset, textShadowBlurRadius, textShadow.CGColor)
       let startStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
       startStyle.alignment = NSTextAlignment.Center;
-      
+
       let startFontAttributes = [NSFontAttributeName: UIFont(name: clumsyFont, size: 150)!,
-                                 NSForegroundColorAttributeName: fillColor,
-                                 NSParagraphStyleAttributeName: startStyle]
-      
+        NSForegroundColorAttributeName: fillColor,
+        NSParagraphStyleAttributeName: startStyle]
+
       startTextContent.drawInRect(CGRectOffset(startRect,0,
         (startRect.height - startTextContent.boundingRectWithSize(startRect.size,
           options: NSStringDrawingOptions.UsesLineFragmentOrigin,
@@ -87,14 +87,14 @@ class ClumsyActionView: UIView {
       CGContextSetShadowWithColor(context, textShadowOffset, textShadowBlurRadius, textShadow.CGColor)
       let swipeStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
       swipeStyle.alignment = NSTextAlignment.Center;
-      
+
       let swipeFontAttributes = [NSFontAttributeName: UIFont(name: clumsyFont, size: 110)!,
-                                 NSForegroundColorAttributeName: fillColor,
-                                 NSParagraphStyleAttributeName: swipeStyle]
-      
+        NSForegroundColorAttributeName: fillColor,
+        NSParagraphStyleAttributeName: swipeStyle]
+
       swipeTextContent.drawInRect(CGRectOffset(swipeRect, 0, (swipeRect.height - swipeTextContent.boundingRectWithSize(swipeRect.size, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: swipeFontAttributes, context: nil).size.height) / 2), withAttributes: swipeFontAttributes);
       CGContextRestoreGState(context)
-      
+
       //// Rectangle L Drawing
       var rectangleLPath = UIBezierPath()
       rectangleLPath.moveToPoint(CGPointMake(contextFrame.minX + 130.2, contextFrame.minY + 244.5))
@@ -108,17 +108,17 @@ class ClumsyActionView: UIView {
       rectangleLPath.closePath()
       rectangleLPath.lineCapStyle = kCGLineCapRound;
       rectangleLPath.lineJoinStyle = kCGLineJoinRound;
-      
+
       CGContextSaveGState(context)
       CGContextSetShadowWithColor(context, textShadowOffset, textShadowBlurRadius, textShadow.CGColor)
       fillColor.setFill()
       rectangleLPath.fill()
       CGContextRestoreGState(context)
-      
+
       fillColor.setStroke()
       rectangleLPath.lineWidth = 1
       rectangleLPath.stroke()
-      
+
     case .SwipeRight:
       //// Swipe Drawing
       let swipeRect: CGRect = CGRectMake(contextFrame.minX + 8, contextFrame.minY, 364, 142)
@@ -127,14 +127,14 @@ class ClumsyActionView: UIView {
       CGContextSetShadowWithColor(context, textShadowOffset, textShadowBlurRadius, textShadow.CGColor)
       let swipeStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
       swipeStyle.alignment = NSTextAlignment.Center;
-      
+
       let swipeFontAttributes = [NSFontAttributeName: UIFont(name: clumsyFont, size: 110)!,
-                                 NSForegroundColorAttributeName: fillColor,
-                                 NSParagraphStyleAttributeName: swipeStyle]
-      
+        NSForegroundColorAttributeName: fillColor,
+        NSParagraphStyleAttributeName: swipeStyle]
+
       swipeTextContent.drawInRect(CGRectOffset(swipeRect, 0, (swipeRect.height - swipeTextContent.boundingRectWithSize(swipeRect.size, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: swipeFontAttributes, context: nil).size.height) / 2), withAttributes: swipeFontAttributes);
       CGContextRestoreGState(context)
-      
+
       //// Rectangle R Drawing
       var rectangleRPath = UIBezierPath()
       rectangleRPath.moveToPoint(CGPointMake(contextFrame.minX + 250.8, contextFrame.minY + 244.5))
@@ -148,17 +148,17 @@ class ClumsyActionView: UIView {
       rectangleRPath.closePath()
       rectangleRPath.lineCapStyle = kCGLineCapRound;
       rectangleRPath.lineJoinStyle = kCGLineJoinRound;
-      
+
       CGContextSaveGState(context)
       CGContextSetShadowWithColor(context, textShadowOffset, textShadowBlurRadius, textShadow.CGColor)
       fillColor.setFill()
       rectangleRPath.fill()
       CGContextRestoreGState(context)
-      
+
       fillColor.setStroke()
       rectangleRPath.lineWidth = 1
       rectangleRPath.stroke()
-      
+
     case .SwipeUp:
       //// Swipe Drawing
       let swipeRect: CGRect = CGRectMake(contextFrame.minX + 8, contextFrame.minY, 364, 142)
@@ -167,14 +167,16 @@ class ClumsyActionView: UIView {
       CGContextSetShadowWithColor(context, textShadowOffset, textShadowBlurRadius, textShadow.CGColor)
       let swipeStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
       swipeStyle.alignment = NSTextAlignment.Center;
-      
+
       let swipeFontAttributes = [NSFontAttributeName: UIFont(name: clumsyFont, size: 110)!,
-                                 NSForegroundColorAttributeName: fillColor,
-                                 NSParagraphStyleAttributeName: swipeStyle]
-      
+        NSForegroundColorAttributeName: fillColor,
+        NSParagraphStyleAttributeName: swipeStyle]
+
+
+
       swipeTextContent.drawInRect(CGRectOffset(swipeRect, 0, (swipeRect.height - swipeTextContent.boundingRectWithSize(swipeRect.size, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: swipeFontAttributes, context: nil).size.height) / 2), withAttributes: swipeFontAttributes);
       CGContextRestoreGState(context)
-      
+
       //// Rectangle U Drawing
       var rectangleUPath = UIBezierPath()
       rectangleUPath.moveToPoint(CGPointMake(contextFrame.minX + 163.97, contextFrame.minY + 231.6))
@@ -188,17 +190,17 @@ class ClumsyActionView: UIView {
       rectangleUPath.closePath()
       rectangleUPath.lineCapStyle = kCGLineCapRound;
       rectangleUPath.lineJoinStyle = kCGLineJoinBevel;
-      
+
       CGContextSaveGState(context)
       CGContextSetShadowWithColor(context, textShadowOffset, textShadowBlurRadius, textShadow.CGColor)
       fillColor.setFill()
       rectangleUPath.fill()
       CGContextRestoreGState(context)
-      
+
       fillColor.setStroke()
       rectangleUPath.lineWidth = 1
       rectangleUPath.stroke()
-      
+
     case .SwipeDown:
       //// Swipe Drawing
       let swipeRect: CGRect = CGRectMake(contextFrame.minX + 8, contextFrame.minY, 364, 142)
@@ -207,14 +209,14 @@ class ClumsyActionView: UIView {
       CGContextSetShadowWithColor(context, textShadowOffset, textShadowBlurRadius, textShadow.CGColor)
       let swipeStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
       swipeStyle.alignment = NSTextAlignment.Center;
-      
+
       let swipeFontAttributes = [NSFontAttributeName: UIFont(name: clumsyFont, size: 110)!,
-                                 NSForegroundColorAttributeName: fillColor,
-                                 NSParagraphStyleAttributeName: swipeStyle]
-      
+        NSForegroundColorAttributeName: fillColor,
+        NSParagraphStyleAttributeName: swipeStyle]
+
       swipeTextContent.drawInRect(CGRectOffset(swipeRect, 0, (swipeRect.height - swipeTextContent.boundingRectWithSize(swipeRect.size, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: swipeFontAttributes, context: nil).size.height) / 2), withAttributes: swipeFontAttributes);
       CGContextRestoreGState(context)
-      
+
       //// Rectangle D Drawing
       var rectangleDPath = UIBezierPath()
       rectangleDPath.moveToPoint(CGPointMake(contextFrame.minX + 163.97, contextFrame.minY + 351.4))
@@ -228,17 +230,17 @@ class ClumsyActionView: UIView {
       rectangleDPath.closePath()
       rectangleDPath.lineCapStyle = kCGLineCapRound;
       rectangleDPath.lineJoinStyle = kCGLineJoinBevel;
-      
+
       CGContextSaveGState(context)
       CGContextSetShadowWithColor(context, textShadowOffset, textShadowBlurRadius, textShadow.CGColor)
       fillColor.setFill()
       rectangleDPath.fill()
       CGContextRestoreGState(context)
-      
+
       fillColor.setStroke()
       rectangleDPath.lineWidth = 1
       rectangleDPath.stroke()
-      
+
     case .Shake:
       //// Shake Drawing
       let shakeRect: CGRect = CGRectMake(contextFrame.minX + 22, contextFrame.minY + 150, 337, 150)
@@ -247,14 +249,14 @@ class ClumsyActionView: UIView {
       CGContextSetShadowWithColor(context, textShadowOffset, textShadowBlurRadius, textShadow.CGColor)
       let shakeStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
       shakeStyle.alignment = NSTextAlignment.Center;
-      
+
       let shakeFontAttributes = [NSFontAttributeName: UIFont(name: clumsyFont, size: 110)!,
-                                 NSForegroundColorAttributeName: fillColor,
+        NSForegroundColorAttributeName: fillColor,
         NSParagraphStyleAttributeName: shakeStyle]
-      
+
       shakeTextContent.drawInRect(CGRectOffset(shakeRect, 0, (shakeRect.height - shakeTextContent.boundingRectWithSize(shakeRect.size, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: shakeFontAttributes, context: nil).size.height) / 2), withAttributes: shakeFontAttributes);
       CGContextRestoreGState(context)
-      
+
     case .Tap:
       //// Tap Drawing
       let tapRect: CGRect = CGRectMake(contextFrame.minX + 30, contextFrame.minY + 150, 320, 150)
@@ -263,14 +265,14 @@ class ClumsyActionView: UIView {
       CGContextSetShadowWithColor(context, textShadowOffset, textShadowBlurRadius, textShadow.CGColor)
       let tapStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
       tapStyle.alignment = NSTextAlignment.Center;
-      
+
       let tapFontAttributes = [NSFontAttributeName: UIFont(name: clumsyFont, size: 110)!,
-                               NSForegroundColorAttributeName: fillColor,
-                               NSParagraphStyleAttributeName: tapStyle]
-      
+        NSForegroundColorAttributeName: fillColor,
+        NSParagraphStyleAttributeName: tapStyle]
+
       tapTextContent.drawInRect(CGRectOffset(tapRect, 0, (tapRect.height - tapTextContent.boundingRectWithSize(tapRect.size, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: tapFontAttributes, context: nil).size.height) / 2), withAttributes: tapFontAttributes);
       CGContextRestoreGState(context)
-      
+
     case .DoubleTap:
       //// Double Tap Drawing
       let doubleTapRect: CGRect = CGRectMake(contextFrame.minX + 12, contextFrame.minY + 45, 356, 360)
@@ -279,11 +281,11 @@ class ClumsyActionView: UIView {
       CGContextSetShadowWithColor(context, textShadowOffset, textShadowBlurRadius, textShadow.CGColor)
       let doubleTapStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
       doubleTapStyle.alignment = NSTextAlignment.Center;
-      
+
       let doubleTapFontAttributes = [NSFontAttributeName: UIFont(name: clumsyFont, size: 110)!,
-                                     NSForegroundColorAttributeName: fillColor,
-                                     NSParagraphStyleAttributeName: doubleTapStyle]
-      
+        NSForegroundColorAttributeName: fillColor,
+        NSParagraphStyleAttributeName: doubleTapStyle]
+
       doubleTapTextContent.drawInRect(CGRectOffset(doubleTapRect, 0, (doubleTapRect.height - doubleTapTextContent.boundingRectWithSize(doubleTapRect.size, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: doubleTapFontAttributes, context: nil).size.height) / 2), withAttributes: doubleTapFontAttributes);
       CGContextRestoreGState(context)
       

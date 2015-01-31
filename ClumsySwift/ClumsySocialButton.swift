@@ -17,16 +17,18 @@ enum SocialButton {
   case TwitterShare
   case FacebookScore
   case TwitterScore
+  case LeaderboardMain
+  case LeaderboardScore
 }
 
 class ClumsySocialButton: UIButton {
-  
+
   private var delegate: ClumsySocialButtonDelegate
 
   required init(coder: NSCoder) {
     fatalError("NSCoding not supported")
   }
-  
+
   init(button: SocialButton,frame: CGRect, target: ClumsySocialButtonDelegate) {
     delegate = target
     super.init(frame: frame)
@@ -47,62 +49,173 @@ class ClumsySocialButton: UIButton {
       setBackgroundImage(imageForContextScoreButton(.TwitterScore, state: .Normal), forState: .Normal)
       setBackgroundImage(imageForContextScoreButton(.TwitterScore, state: .Highlighted), forState: .Highlighted)
       addTarget(self, action: "twitterScoreButtonEvent", forControlEvents: .TouchUpInside)
+    case .LeaderboardMain:
+      setBackgroundImage(imageForContextScoreButton(.LeaderboardMain, state: .Normal), forState: .Normal)
+      setBackgroundImage(imageForContextScoreButton(.LeaderboardMain, state: .Highlighted), forState: .Highlighted)
+      addTarget(self, action: "leaderboardMainButtonEvent", forControlEvents: .TouchUpInside)
+    case .LeaderboardScore:
+      setBackgroundImage(imageForContextScoreButton(.LeaderboardScore, state: .Normal), forState: .Normal)
+      setBackgroundImage(imageForContextScoreButton(.LeaderboardScore, state: .Highlighted), forState: .Highlighted)
+      addTarget(self, action: "leaderboardScoreButtonEvent", forControlEvents: .TouchUpInside)
     default:
       println("Error")
     }
     contentMode = .ScaleAspectFit
   }
-  
+
   internal func facebookShareButtonEvent() {
     delegate.socialButtonPressed(.FacebookShare)
   }
-  
+
   internal func twitterShareButtonEvent() {
     delegate.socialButtonPressed(.TwitterShare)
   }
-  
+
   internal func facebookScoreButtonEvent() {
     delegate.socialButtonPressed(.FacebookScore)
   }
-  
+
   internal func twitterScoreButtonEvent() {
     delegate.socialButtonPressed(.TwitterScore)
   }
-    
+
+  internal func leaderboardMainButtonEvent() {
+    delegate.socialButtonPressed(.LeaderboardMain)
+  }
+
+  internal func leaderboardScoreButtonEvent() {
+    delegate.socialButtonPressed(.LeaderboardScore)
+  }
+
   private func imageForContextShareButton(button: SocialButton, state: UIControlState) -> UIImage {
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(150, 290), false, 0)
     switch button {
     case .FacebookShare: drawFacebookShare(state)
     case .TwitterShare: drawTwitterShare(state)
+    case .LeaderboardMain: drawLeaderboardMain(state)
     default: println("Error")
     }
     let image = UIGraphicsGetImageFromCurrentImageContext()
     UIGraphicsEndImageContext()
     return image
   }
-  
+
   private func imageForContextScoreButton(button: SocialButton, state: UIControlState) -> UIImage {
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(95, 95), false, 0)
     switch button {
     case .FacebookScore: drawFacebookScore(state)
     case .TwitterScore: drawTwitterScore(state)
+    case .LeaderboardScore: drawLeaderboardScore(state)
     default: println("Error")
     }
     let image = UIGraphicsGetImageFromCurrentImageContext()
     UIGraphicsEndImageContext()
     return image
   }
-  
+
+  private func drawLeaderboardMain(state: UIControlState) {
+
+  }
+
+  private func drawLeaderboardScore(state: UIControlState) {
+    let scoreFrame = CGRectMake(0, 0, 95, 95)
+    //// General Declarations
+    let context = UIGraphicsGetCurrentContext()
+
+
+    var leaderboardColor: UIColor!
+    var numberColor: UIColor!
+
+    //// Color Declarations
+
+    switch state {
+    case UIControlState.Normal:
+      leaderboardColor = UIColor(red: 0.990, green: 1.000, blue: 0.000, alpha: 1.000)
+      numberColor = UIColor.whiteColor()
+    case UIControlState.Highlighted:
+      leaderboardColor = UIColor(red: 0.800, green: 0.616, blue: 0.153, alpha: 1.000)
+      numberColor = UIColor(red: 0.734, green: 0.535, blue: 0.006, alpha: 1.000)
+    default:
+      println("Error")
+    }
+
+    let shadow8Color = UIColor(red: 0.724, green: 0.724, blue: 0.724, alpha: 1.000)
+
+    //// Shadow Declarations
+    let shadow8 = shadow8Color
+    let shadow8Offset = CGSizeMake(0.1, -0.1)
+    let shadow8BlurRadius: CGFloat = 3
+
+    //// Group
+    //// Rectangle 6 Drawing
+    let rectangle6Path = UIBezierPath(roundedRect: CGRectMake(scoreFrame.minX + 35, scoreFrame.minY + 15, 26, 64), cornerRadius: 2)
+    leaderboardColor.setFill()
+    rectangle6Path.fill()
+
+
+    //// Rectangle 7 Drawing
+    let rectangle7Path = UIBezierPath(roundedRect: CGRectMake(scoreFrame.minX + 63, scoreFrame.minY + 35, 25, 44), cornerRadius: 2)
+    leaderboardColor.setFill()
+    rectangle7Path.fill()
+
+
+    //// Rectangle 8 Drawing
+    let rectangle8Path = UIBezierPath(roundedRect: CGRectMake(scoreFrame.minX + 8, scoreFrame.minY + 53, 25, 26), cornerRadius: 2)
+    leaderboardColor.setFill()
+    rectangle8Path.fill()
+
+
+    //// Text 7 Drawing
+    let text7Rect = CGRectMake(scoreFrame.minX + 35, scoreFrame.minY + 15, 26, 64)
+    CGContextSaveGState(context)
+    CGContextSetShadowWithColor(context, shadow8Offset, shadow8BlurRadius, (shadow8 as UIColor).CGColor)
+    let text7Style = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
+    text7Style.alignment = NSTextAlignment.Center
+
+    let text7FontAttributes = [NSFontAttributeName: UIFont(name: "Arial-BoldMT", size: 23)!, NSForegroundColorAttributeName: numberColor, NSParagraphStyleAttributeName: text7Style]
+
+    "1".drawInRect(text7Rect, withAttributes: text7FontAttributes)
+    CGContextRestoreGState(context)
+
+
+
+    //// Text 8 Drawing
+    let text8Rect = CGRectMake(scoreFrame.minX + 63, scoreFrame.minY + 35, 25, 44)
+    CGContextSaveGState(context)
+    CGContextSetShadowWithColor(context, shadow8Offset, shadow8BlurRadius, (shadow8 as UIColor).CGColor)
+    let text8Style = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
+    text8Style.alignment = NSTextAlignment.Center
+
+    let text8FontAttributes = [NSFontAttributeName: UIFont(name: "Arial-BoldMT", size: 23)!, NSForegroundColorAttributeName: numberColor, NSParagraphStyleAttributeName: text8Style]
+
+    "2".drawInRect(text8Rect, withAttributes: text8FontAttributes)
+    CGContextRestoreGState(context)
+
+
+
+    //// Text 9 Drawing
+    let text9Rect = CGRectMake(scoreFrame.minX + 8, scoreFrame.minY + 53, 25, 26)
+    CGContextSaveGState(context)
+    CGContextSetShadowWithColor(context, shadow8Offset, shadow8BlurRadius, (shadow8 as UIColor).CGColor)
+    let text9Style = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
+    text9Style.alignment = NSTextAlignment.Center
+
+    let text9FontAttributes = [NSFontAttributeName: UIFont(name: "Arial-BoldMT", size: 23)!, NSForegroundColorAttributeName: numberColor, NSParagraphStyleAttributeName: text9Style]
+
+    "3".drawInRect(text9Rect, withAttributes: text9FontAttributes)
+    CGContextRestoreGState(context)
+  }
+
   private func drawFacebookShare(state: UIControlState) {
     //// General Declarations
     let context = UIGraphicsGetCurrentContext()
-    
+
     //// Color Declarations
     let facebookFrame = CGRectMake(0, 0, 150, 290)
     let facebookColor = UIColor(red: 0.255, green: 0.369, blue: 0.608, alpha: 1.000)
     let shadowColor2 = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
     let fillColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
-    
+
     //// Shadow Declarations
     let buttonShadow = shadowColor2.colorWithAlphaComponent(0.67)
     let buttonShadowOffset = CGSizeMake(0.1, -0.1)
@@ -110,7 +223,7 @@ class ClumsySocialButton: UIButton {
     let textShadow = fillColor
     let textShadowOffset = CGSizeMake(0.1, -0.1)
     let textShadowBlurRadius: CGFloat = 5
-    
+
     //// Facebook Case Drawing
     var facebookCasePath = UIBezierPath()
     facebookCasePath.moveToPoint(CGPointMake(facebookFrame.minX + 82.35, facebookFrame.minY + 103.61))
@@ -148,53 +261,53 @@ class ClumsySocialButton: UIButton {
     facebookColor.setFill()
     facebookCasePath.fill()
     CGContextRestoreGState(context)
-    
+
     if(state == .Normal) {
-    //// Facebook Letter Drawing
-    var facebookLetterPath = UIBezierPath()
-    facebookLetterPath.moveToPoint(CGPointMake(facebookFrame.minX + 95.5, facebookFrame.minY + 113.79))
-    facebookLetterPath.addCurveToPoint(CGPointMake(facebookFrame.minX + 87.04, facebookFrame.minY + 113.9), controlPoint1: CGPointMake(facebookFrame.minX + 95.5, facebookFrame.minY + 113.79), controlPoint2: CGPointMake(facebookFrame.minX + 88.48, facebookFrame.minY + 113.9))
-    facebookLetterPath.addCurveToPoint(CGPointMake(facebookFrame.minX + 81.14, facebookFrame.minY + 116.07), controlPoint1: CGPointMake(facebookFrame.minX + 83.56, facebookFrame.minY + 113.9), controlPoint2: CGPointMake(facebookFrame.minX + 82.37, facebookFrame.minY + 114.98))
-    facebookLetterPath.addCurveToPoint(CGPointMake(facebookFrame.minX + 80.19, facebookFrame.minY + 124.96), controlPoint1: CGPointMake(facebookFrame.minX + 79.91, facebookFrame.minY + 117.17), controlPoint2: CGPointMake(facebookFrame.minX + 80.19, facebookFrame.minY + 121.82))
-    facebookLetterPath.addLineToPoint(CGPointMake(facebookFrame.minX + 80.19, facebookFrame.minY + 125.35))
-    facebookLetterPath.addLineToPoint(CGPointMake(facebookFrame.minX + 93.86, facebookFrame.minY + 125.35))
-    facebookLetterPath.addLineToPoint(CGPointMake(facebookFrame.minX + 93.86, facebookFrame.minY + 135.92))
-    facebookLetterPath.addLineToPoint(CGPointMake(facebookFrame.minX + 80.78, facebookFrame.minY + 135.92))
-    facebookLetterPath.addLineToPoint(CGPointMake(facebookFrame.minX + 80.78, facebookFrame.minY + 174))
-    facebookLetterPath.addLineToPoint(CGPointMake(facebookFrame.minX + 63.07, facebookFrame.minY + 174))
-    facebookLetterPath.addLineToPoint(CGPointMake(facebookFrame.minX + 63.07, facebookFrame.minY + 135.92))
-    facebookLetterPath.addLineToPoint(CGPointMake(facebookFrame.minX + 55.5, facebookFrame.minY + 135.92))
-    facebookLetterPath.addLineToPoint(CGPointMake(facebookFrame.minX + 55.5, facebookFrame.minY + 125.35))
-    facebookLetterPath.addLineToPoint(CGPointMake(facebookFrame.minX + 63.07, facebookFrame.minY + 125.35))
-    facebookLetterPath.addLineToPoint(CGPointMake(facebookFrame.minX + 62.68, facebookFrame.minY + 119.88))
-    facebookLetterPath.addCurveToPoint(CGPointMake(facebookFrame.minX + 67.81, facebookFrame.minY + 106.93), controlPoint1: CGPointMake(facebookFrame.minX + 62.68, facebookFrame.minY + 113.93), controlPoint2: CGPointMake(facebookFrame.minX + 64.22, facebookFrame.minY + 109.9))
-    facebookLetterPath.addCurveToPoint(CGPointMake(facebookFrame.minX + 82.71, facebookFrame.minY + 103.12), controlPoint1: CGPointMake(facebookFrame.minX + 71.4, facebookFrame.minY + 103.95), controlPoint2: CGPointMake(facebookFrame.minX + 75.43, facebookFrame.minY + 103.12))
-    facebookLetterPath.addCurveToPoint(CGPointMake(facebookFrame.minX + 95.5, facebookFrame.minY + 103.12), controlPoint1: CGPointMake(facebookFrame.minX + 85.34, facebookFrame.minY + 103.12), controlPoint2: CGPointMake(facebookFrame.minX + 93.86, facebookFrame.minY + 102.86))
-    facebookLetterPath.addLineToPoint(CGPointMake(facebookFrame.minX + 95.5, facebookFrame.minY + 113.79))
-    facebookLetterPath.closePath()
-    CGContextSaveGState(context)
-    CGContextSetShadowWithColor(context, textShadowOffset, textShadowBlurRadius, textShadow.CGColor)
-    fillColor.setFill()
-    facebookLetterPath.fill()
-    CGContextRestoreGState(context)
-    
-    fillColor.setStroke()
-    facebookLetterPath.lineWidth = 1
-    facebookLetterPath.stroke()
+      //// Facebook Letter Drawing
+      var facebookLetterPath = UIBezierPath()
+      facebookLetterPath.moveToPoint(CGPointMake(facebookFrame.minX + 95.5, facebookFrame.minY + 113.79))
+      facebookLetterPath.addCurveToPoint(CGPointMake(facebookFrame.minX + 87.04, facebookFrame.minY + 113.9), controlPoint1: CGPointMake(facebookFrame.minX + 95.5, facebookFrame.minY + 113.79), controlPoint2: CGPointMake(facebookFrame.minX + 88.48, facebookFrame.minY + 113.9))
+      facebookLetterPath.addCurveToPoint(CGPointMake(facebookFrame.minX + 81.14, facebookFrame.minY + 116.07), controlPoint1: CGPointMake(facebookFrame.minX + 83.56, facebookFrame.minY + 113.9), controlPoint2: CGPointMake(facebookFrame.minX + 82.37, facebookFrame.minY + 114.98))
+      facebookLetterPath.addCurveToPoint(CGPointMake(facebookFrame.minX + 80.19, facebookFrame.minY + 124.96), controlPoint1: CGPointMake(facebookFrame.minX + 79.91, facebookFrame.minY + 117.17), controlPoint2: CGPointMake(facebookFrame.minX + 80.19, facebookFrame.minY + 121.82))
+      facebookLetterPath.addLineToPoint(CGPointMake(facebookFrame.minX + 80.19, facebookFrame.minY + 125.35))
+      facebookLetterPath.addLineToPoint(CGPointMake(facebookFrame.minX + 93.86, facebookFrame.minY + 125.35))
+      facebookLetterPath.addLineToPoint(CGPointMake(facebookFrame.minX + 93.86, facebookFrame.minY + 135.92))
+      facebookLetterPath.addLineToPoint(CGPointMake(facebookFrame.minX + 80.78, facebookFrame.minY + 135.92))
+      facebookLetterPath.addLineToPoint(CGPointMake(facebookFrame.minX + 80.78, facebookFrame.minY + 174))
+      facebookLetterPath.addLineToPoint(CGPointMake(facebookFrame.minX + 63.07, facebookFrame.minY + 174))
+      facebookLetterPath.addLineToPoint(CGPointMake(facebookFrame.minX + 63.07, facebookFrame.minY + 135.92))
+      facebookLetterPath.addLineToPoint(CGPointMake(facebookFrame.minX + 55.5, facebookFrame.minY + 135.92))
+      facebookLetterPath.addLineToPoint(CGPointMake(facebookFrame.minX + 55.5, facebookFrame.minY + 125.35))
+      facebookLetterPath.addLineToPoint(CGPointMake(facebookFrame.minX + 63.07, facebookFrame.minY + 125.35))
+      facebookLetterPath.addLineToPoint(CGPointMake(facebookFrame.minX + 62.68, facebookFrame.minY + 119.88))
+      facebookLetterPath.addCurveToPoint(CGPointMake(facebookFrame.minX + 67.81, facebookFrame.minY + 106.93), controlPoint1: CGPointMake(facebookFrame.minX + 62.68, facebookFrame.minY + 113.93), controlPoint2: CGPointMake(facebookFrame.minX + 64.22, facebookFrame.minY + 109.9))
+      facebookLetterPath.addCurveToPoint(CGPointMake(facebookFrame.minX + 82.71, facebookFrame.minY + 103.12), controlPoint1: CGPointMake(facebookFrame.minX + 71.4, facebookFrame.minY + 103.95), controlPoint2: CGPointMake(facebookFrame.minX + 75.43, facebookFrame.minY + 103.12))
+      facebookLetterPath.addCurveToPoint(CGPointMake(facebookFrame.minX + 95.5, facebookFrame.minY + 103.12), controlPoint1: CGPointMake(facebookFrame.minX + 85.34, facebookFrame.minY + 103.12), controlPoint2: CGPointMake(facebookFrame.minX + 93.86, facebookFrame.minY + 102.86))
+      facebookLetterPath.addLineToPoint(CGPointMake(facebookFrame.minX + 95.5, facebookFrame.minY + 113.79))
+      facebookLetterPath.closePath()
+      CGContextSaveGState(context)
+      CGContextSetShadowWithColor(context, textShadowOffset, textShadowBlurRadius, textShadow.CGColor)
+      fillColor.setFill()
+      facebookLetterPath.fill()
+      CGContextRestoreGState(context)
+
+      fillColor.setStroke()
+      facebookLetterPath.lineWidth = 1
+      facebookLetterPath.stroke()
     }
 
   }
-  
+
   private func drawTwitterShare(state: UIControlState) {
     //// General Declarations
     let context = UIGraphicsGetCurrentContext()
-    
+
     //// Color Declarations
     let twitterFrame = CGRectMake(0, 0, 150, 290)
     let twitterColor = UIColor(red: 0.604, green: 0.894, blue: 0.910, alpha: 1.000)
     let shadowColor2 = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
     let fillColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
-    
+
     //// Shadow Declarations
     let buttonShadow = shadowColor2.colorWithAlphaComponent(0.67)
     let buttonShadowOffset = CGSizeMake(0.1, -0.1)
@@ -202,7 +315,7 @@ class ClumsySocialButton: UIButton {
     let textShadow = fillColor
     let textShadowOffset = CGSizeMake(0.1, -0.1)
     let textShadowBlurRadius: CGFloat = 5
-    
+
     //// Twitter Case Drawing
     var twitterCasePath = UIBezierPath()
     twitterCasePath.moveToPoint(CGPointMake(twitterFrame.minX + 55.22, twitterFrame.minY + 109.02))
@@ -239,8 +352,8 @@ class ClumsySocialButton: UIButton {
     twitterColor.setFill()
     twitterCasePath.fill()
     CGContextRestoreGState(context)
-    
-    
+
+
     if (state == .Normal) {
       //// Twitter Letter Drawing
       var twitterLetterPath = UIBezierPath()
@@ -271,7 +384,7 @@ class ClumsySocialButton: UIButton {
       CGContextRestoreGState(context)
     }
   }
-  
+
   private func drawFacebookScore(state: UIControlState) {
     let scoreFrame = CGRectMake(0, 0, 95, 95)
     var facebookColor: UIColor?
@@ -308,7 +421,7 @@ class ClumsySocialButton: UIButton {
     facebookColor!.setFill()
     facebookLetterPath.fill()
   }
-  
+
   private func drawTwitterScore(state: UIControlState) {
     let scoreFrame = CGRectMake(0, 0, 95, 95)
     var twitterColor: UIColor?
@@ -349,7 +462,7 @@ class ClumsySocialButton: UIButton {
     
     twitterColor!.setFill()
     twitterLetterPath.fill()
-
+    
   }
   
 }

@@ -27,6 +27,7 @@
 		57447FE319C1A36B00026F2B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57447FE219C1A36B00026F2B /* Constants.swift */; };
 		5744800719C1C2DE00026F2B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5744800119C1B98400026F2B /* Images.xcassets */; };
 		5744800819C1C2DF00026F2B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5744800119C1B98400026F2B /* Images.xcassets */; };
+		57E44EFC1A7D716F00AECE59 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57E44EFB1A7D716F00AECE59 /* GameKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		5723C62D1991257200B6087F /* ClumsySwipeGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClumsySwipeGestureRecognizer.swift; sourceTree = "<group>"; };
 		57447FE219C1A36B00026F2B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = ../Constants.swift; sourceTree = "<group>"; };
 		5744800119C1B98400026F2B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		57E44EFB1A7D716F00AECE59 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57E44EFC1A7D716F00AECE59 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +89,7 @@
 		5723C5F2199123C400B6087F = {
 			isa = PBXGroup;
 			children = (
+				57E44EFB1A7D716F00AECE59 /* GameKit.framework */,
 				5723C5FD199123C400B6087F /* ClumsySwift */,
 				5723C613199123C500B6087F /* ClumsySwiftTests */,
 				5723C5FC199123C400B6087F /* Products */,
@@ -242,6 +246,11 @@
 					5723C5FA199123C400B6087F = {
 						CreatedOnToolsVersion = 6.0;
 						DevelopmentTeam = 94TWQJ7GSF;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
+						};
 					};
 					5723C60F199123C500B6087F = {
 						CreatedOnToolsVersion = 6.0;
