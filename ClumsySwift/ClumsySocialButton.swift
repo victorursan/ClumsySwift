@@ -50,8 +50,8 @@ class ClumsySocialButton: UIButton {
       setBackgroundImage(imageForContextScoreButton(.TwitterScore, state: .Highlighted), forState: .Highlighted)
       addTarget(self, action: "twitterScoreButtonEvent", forControlEvents: .TouchUpInside)
     case .LeaderboardMain:
-      setBackgroundImage(imageForContextScoreButton(.LeaderboardMain, state: .Normal), forState: .Normal)
-      setBackgroundImage(imageForContextScoreButton(.LeaderboardMain, state: .Highlighted), forState: .Highlighted)
+      setBackgroundImage(imageForContextShareButton(.LeaderboardMain, state: .Normal), forState: .Normal)
+      setBackgroundImage(imageForContextShareButton(.LeaderboardMain, state: .Highlighted), forState: .Highlighted)
       addTarget(self, action: "leaderboardMainButtonEvent", forControlEvents: .TouchUpInside)
     case .LeaderboardScore:
       setBackgroundImage(imageForContextScoreButton(.LeaderboardScore, state: .Normal), forState: .Normal)
@@ -114,7 +114,168 @@ class ClumsySocialButton: UIButton {
   }
 
   private func drawLeaderboardMain(state: UIControlState) {
+    //// General Declarations
+    let context = UIGraphicsGetCurrentContext()
 
+    //// Color Declarations
+    let gradient3Color1 = UIColor(red: 0.990, green: 1.000, blue: 0.000, alpha: 1.000)
+    let shadowColor2 = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
+    let shadow8Color = UIColor(red: 0.724, green: 0.724, blue: 0.724, alpha: 1.000)
+    let color37 = UIColor(red: 0.000, green: 0.915, blue: 1.000, alpha: 1.000)
+
+    //// Shadow Declarations
+    let buttonShadow = shadowColor2.colorWithAlphaComponent(0.67)
+    let buttonShadowOffset = CGSizeMake(0.1, -0.1)
+    let buttonShadowBlurRadius: CGFloat = 7
+    let shadow8 = shadow8Color
+    let shadow8Offset = CGSizeMake(0.1, -0.1)
+    let shadow8BlurRadius: CGFloat = 3
+
+    //// Frames
+    let leaderBoardFrame = CGRectMake(0, 0, 150, 290)
+
+    //// LeaderBoard
+    //// Bezier 2 Drawing
+    var bezier2Path = UIBezierPath()
+    bezier2Path.moveToPoint(CGPointMake(leaderBoardFrame.minX + 112.94, leaderBoardFrame.minY + 119))
+    bezier2Path.addLineToPoint(CGPointMake(leaderBoardFrame.minX + 94.06, leaderBoardFrame.minY + 119))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 92.26, leaderBoardFrame.minY + 119.15), controlPoint1: CGPointMake(leaderBoardFrame.minX + 93.18, leaderBoardFrame.minY + 119), controlPoint2: CGPointMake(leaderBoardFrame.minX + 92.74, leaderBoardFrame.minY + 119))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 91.15, leaderBoardFrame.minY + 120.26), controlPoint1: CGPointMake(leaderBoardFrame.minX + 91.75, leaderBoardFrame.minY + 119.34), controlPoint2: CGPointMake(leaderBoardFrame.minX + 91.34, leaderBoardFrame.minY + 119.75))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 91, leaderBoardFrame.minY + 122.06), controlPoint1: CGPointMake(leaderBoardFrame.minX + 91, leaderBoardFrame.minY + 120.74), controlPoint2: CGPointMake(leaderBoardFrame.minX + 91, leaderBoardFrame.minY + 121.18))
+    bezier2Path.addLineToPoint(CGPointMake(leaderBoardFrame.minX + 91, leaderBoardFrame.minY + 159.94))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 91.15, leaderBoardFrame.minY + 161.74), controlPoint1: CGPointMake(leaderBoardFrame.minX + 91, leaderBoardFrame.minY + 160.82), controlPoint2: CGPointMake(leaderBoardFrame.minX + 91, leaderBoardFrame.minY + 161.26))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 92.26, leaderBoardFrame.minY + 162.85), controlPoint1: CGPointMake(leaderBoardFrame.minX + 91.34, leaderBoardFrame.minY + 162.25), controlPoint2: CGPointMake(leaderBoardFrame.minX + 91.75, leaderBoardFrame.minY + 162.66))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 94.06, leaderBoardFrame.minY + 163), controlPoint1: CGPointMake(leaderBoardFrame.minX + 92.74, leaderBoardFrame.minY + 163), controlPoint2: CGPointMake(leaderBoardFrame.minX + 93.18, leaderBoardFrame.minY + 163))
+    bezier2Path.addLineToPoint(CGPointMake(leaderBoardFrame.minX + 112.94, leaderBoardFrame.minY + 163))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 114.74, leaderBoardFrame.minY + 162.85), controlPoint1: CGPointMake(leaderBoardFrame.minX + 113.82, leaderBoardFrame.minY + 163), controlPoint2: CGPointMake(leaderBoardFrame.minX + 114.26, leaderBoardFrame.minY + 163))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 115.85, leaderBoardFrame.minY + 161.74), controlPoint1: CGPointMake(leaderBoardFrame.minX + 115.25, leaderBoardFrame.minY + 162.66), controlPoint2: CGPointMake(leaderBoardFrame.minX + 115.66, leaderBoardFrame.minY + 162.25))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 116, leaderBoardFrame.minY + 159.94), controlPoint1: CGPointMake(leaderBoardFrame.minX + 116, leaderBoardFrame.minY + 161.26), controlPoint2: CGPointMake(leaderBoardFrame.minX + 116, leaderBoardFrame.minY + 160.82))
+    bezier2Path.addLineToPoint(CGPointMake(leaderBoardFrame.minX + 116, leaderBoardFrame.minY + 122.06))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 115.85, leaderBoardFrame.minY + 120.26), controlPoint1: CGPointMake(leaderBoardFrame.minX + 116, leaderBoardFrame.minY + 121.18), controlPoint2: CGPointMake(leaderBoardFrame.minX + 116, leaderBoardFrame.minY + 120.74))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 114.74, leaderBoardFrame.minY + 119.15), controlPoint1: CGPointMake(leaderBoardFrame.minX + 115.66, leaderBoardFrame.minY + 119.75), controlPoint2: CGPointMake(leaderBoardFrame.minX + 115.25, leaderBoardFrame.minY + 119.34))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 112.94, leaderBoardFrame.minY + 119), controlPoint1: CGPointMake(leaderBoardFrame.minX + 114.26, leaderBoardFrame.minY + 119), controlPoint2: CGPointMake(leaderBoardFrame.minX + 113.82, leaderBoardFrame.minY + 119))
+    bezier2Path.closePath()
+    bezier2Path.moveToPoint(CGPointMake(leaderBoardFrame.minX + 85.94, leaderBoardFrame.minY + 99))
+    bezier2Path.addLineToPoint(CGPointMake(leaderBoardFrame.minX + 66.06, leaderBoardFrame.minY + 99))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 64.26, leaderBoardFrame.minY + 99.15), controlPoint1: CGPointMake(leaderBoardFrame.minX + 65.18, leaderBoardFrame.minY + 99), controlPoint2: CGPointMake(leaderBoardFrame.minX + 64.74, leaderBoardFrame.minY + 99))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 63.15, leaderBoardFrame.minY + 100.26), controlPoint1: CGPointMake(leaderBoardFrame.minX + 63.75, leaderBoardFrame.minY + 99.34), controlPoint2: CGPointMake(leaderBoardFrame.minX + 63.34, leaderBoardFrame.minY + 99.75))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 63, leaderBoardFrame.minY + 102.06), controlPoint1: CGPointMake(leaderBoardFrame.minX + 63, leaderBoardFrame.minY + 100.74), controlPoint2: CGPointMake(leaderBoardFrame.minX + 63, leaderBoardFrame.minY + 101.18))
+    bezier2Path.addLineToPoint(CGPointMake(leaderBoardFrame.minX + 63, leaderBoardFrame.minY + 159.94))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 63.15, leaderBoardFrame.minY + 161.74), controlPoint1: CGPointMake(leaderBoardFrame.minX + 63, leaderBoardFrame.minY + 160.82), controlPoint2: CGPointMake(leaderBoardFrame.minX + 63, leaderBoardFrame.minY + 161.26))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 64.26, leaderBoardFrame.minY + 162.85), controlPoint1: CGPointMake(leaderBoardFrame.minX + 63.34, leaderBoardFrame.minY + 162.25), controlPoint2: CGPointMake(leaderBoardFrame.minX + 63.75, leaderBoardFrame.minY + 162.66))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 66.06, leaderBoardFrame.minY + 163), controlPoint1: CGPointMake(leaderBoardFrame.minX + 64.74, leaderBoardFrame.minY + 163), controlPoint2: CGPointMake(leaderBoardFrame.minX + 65.18, leaderBoardFrame.minY + 163))
+    bezier2Path.addLineToPoint(CGPointMake(leaderBoardFrame.minX + 85.94, leaderBoardFrame.minY + 163))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 87.74, leaderBoardFrame.minY + 162.85), controlPoint1: CGPointMake(leaderBoardFrame.minX + 86.82, leaderBoardFrame.minY + 163), controlPoint2: CGPointMake(leaderBoardFrame.minX + 87.26, leaderBoardFrame.minY + 163))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 88.85, leaderBoardFrame.minY + 161.74), controlPoint1: CGPointMake(leaderBoardFrame.minX + 88.25, leaderBoardFrame.minY + 162.66), controlPoint2: CGPointMake(leaderBoardFrame.minX + 88.66, leaderBoardFrame.minY + 162.25))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 89, leaderBoardFrame.minY + 159.94), controlPoint1: CGPointMake(leaderBoardFrame.minX + 89, leaderBoardFrame.minY + 161.26), controlPoint2: CGPointMake(leaderBoardFrame.minX + 89, leaderBoardFrame.minY + 160.82))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 89, leaderBoardFrame.minY + 112.7), controlPoint1: CGPointMake(leaderBoardFrame.minX + 89, leaderBoardFrame.minY + 159.94), controlPoint2: CGPointMake(leaderBoardFrame.minX + 89, leaderBoardFrame.minY + 129.42))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 89, leaderBoardFrame.minY + 102.06), controlPoint1: CGPointMake(leaderBoardFrame.minX + 89, leaderBoardFrame.minY + 106.4), controlPoint2: CGPointMake(leaderBoardFrame.minX + 89, leaderBoardFrame.minY + 102.06))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 88.85, leaderBoardFrame.minY + 100.26), controlPoint1: CGPointMake(leaderBoardFrame.minX + 89, leaderBoardFrame.minY + 101.18), controlPoint2: CGPointMake(leaderBoardFrame.minX + 89, leaderBoardFrame.minY + 100.74))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 87.74, leaderBoardFrame.minY + 99.15), controlPoint1: CGPointMake(leaderBoardFrame.minX + 88.66, leaderBoardFrame.minY + 99.75), controlPoint2: CGPointMake(leaderBoardFrame.minX + 88.25, leaderBoardFrame.minY + 99.34))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 85.94, leaderBoardFrame.minY + 99), controlPoint1: CGPointMake(leaderBoardFrame.minX + 87.26, leaderBoardFrame.minY + 99), controlPoint2: CGPointMake(leaderBoardFrame.minX + 86.82, leaderBoardFrame.minY + 99))
+    bezier2Path.closePath()
+    bezier2Path.moveToPoint(CGPointMake(leaderBoardFrame.minX + 57.94, leaderBoardFrame.minY + 137))
+    bezier2Path.addLineToPoint(CGPointMake(leaderBoardFrame.minX + 39.06, leaderBoardFrame.minY + 137))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 37.26, leaderBoardFrame.minY + 137.15), controlPoint1: CGPointMake(leaderBoardFrame.minX + 38.18, leaderBoardFrame.minY + 137), controlPoint2: CGPointMake(leaderBoardFrame.minX + 37.74, leaderBoardFrame.minY + 137))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 36.15, leaderBoardFrame.minY + 138.26), controlPoint1: CGPointMake(leaderBoardFrame.minX + 36.75, leaderBoardFrame.minY + 137.34), controlPoint2: CGPointMake(leaderBoardFrame.minX + 36.34, leaderBoardFrame.minY + 137.75))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 36, leaderBoardFrame.minY + 140.06), controlPoint1: CGPointMake(leaderBoardFrame.minX + 36, leaderBoardFrame.minY + 138.74), controlPoint2: CGPointMake(leaderBoardFrame.minX + 36, leaderBoardFrame.minY + 139.18))
+    bezier2Path.addLineToPoint(CGPointMake(leaderBoardFrame.minX + 36, leaderBoardFrame.minY + 159.94))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 36.15, leaderBoardFrame.minY + 161.74), controlPoint1: CGPointMake(leaderBoardFrame.minX + 36, leaderBoardFrame.minY + 160.82), controlPoint2: CGPointMake(leaderBoardFrame.minX + 36, leaderBoardFrame.minY + 161.26))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 37.26, leaderBoardFrame.minY + 162.85), controlPoint1: CGPointMake(leaderBoardFrame.minX + 36.34, leaderBoardFrame.minY + 162.25), controlPoint2: CGPointMake(leaderBoardFrame.minX + 36.75, leaderBoardFrame.minY + 162.66))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 39.06, leaderBoardFrame.minY + 163), controlPoint1: CGPointMake(leaderBoardFrame.minX + 37.74, leaderBoardFrame.minY + 163), controlPoint2: CGPointMake(leaderBoardFrame.minX + 38.18, leaderBoardFrame.minY + 163))
+    bezier2Path.addLineToPoint(CGPointMake(leaderBoardFrame.minX + 57.94, leaderBoardFrame.minY + 163))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 59.74, leaderBoardFrame.minY + 162.85), controlPoint1: CGPointMake(leaderBoardFrame.minX + 58.82, leaderBoardFrame.minY + 163), controlPoint2: CGPointMake(leaderBoardFrame.minX + 59.26, leaderBoardFrame.minY + 163))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 60.85, leaderBoardFrame.minY + 161.74), controlPoint1: CGPointMake(leaderBoardFrame.minX + 60.25, leaderBoardFrame.minY + 162.66), controlPoint2: CGPointMake(leaderBoardFrame.minX + 60.66, leaderBoardFrame.minY + 162.25))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 61, leaderBoardFrame.minY + 159.94), controlPoint1: CGPointMake(leaderBoardFrame.minX + 61, leaderBoardFrame.minY + 161.26), controlPoint2: CGPointMake(leaderBoardFrame.minX + 61, leaderBoardFrame.minY + 160.82))
+    bezier2Path.addLineToPoint(CGPointMake(leaderBoardFrame.minX + 61, leaderBoardFrame.minY + 140.06))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 60.85, leaderBoardFrame.minY + 138.26), controlPoint1: CGPointMake(leaderBoardFrame.minX + 61, leaderBoardFrame.minY + 139.18), controlPoint2: CGPointMake(leaderBoardFrame.minX + 61, leaderBoardFrame.minY + 138.74))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 59.74, leaderBoardFrame.minY + 137.15), controlPoint1: CGPointMake(leaderBoardFrame.minX + 60.66, leaderBoardFrame.minY + 137.75), controlPoint2: CGPointMake(leaderBoardFrame.minX + 60.25, leaderBoardFrame.minY + 137.34))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 57.94, leaderBoardFrame.minY + 137), controlPoint1: CGPointMake(leaderBoardFrame.minX + 59.26, leaderBoardFrame.minY + 137), controlPoint2: CGPointMake(leaderBoardFrame.minX + 58.82, leaderBoardFrame.minY + 137))
+    bezier2Path.closePath()
+    bezier2Path.moveToPoint(CGPointMake(leaderBoardFrame.minX + 127, leaderBoardFrame.minY + 0))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 127, leaderBoardFrame.minY + 58.33), controlPoint1: CGPointMake(leaderBoardFrame.minX + 127, leaderBoardFrame.minY), controlPoint2: CGPointMake(leaderBoardFrame.minX + 127, leaderBoardFrame.minY + 58.33))
+    bezier2Path.addLineToPoint(CGPointMake(leaderBoardFrame.minX + 127, leaderBoardFrame.minY + 264))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 117.46, leaderBoardFrame.minY + 251.66), controlPoint1: CGPointMake(leaderBoardFrame.minX + 127, leaderBoardFrame.minY + 264), controlPoint2: CGPointMake(leaderBoardFrame.minX + 123.11, leaderBoardFrame.minY + 258.97))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 75, leaderBoardFrame.minY + 196.7), controlPoint1: CGPointMake(leaderBoardFrame.minX + 102.45, leaderBoardFrame.minY + 232.23), controlPoint2: CGPointMake(leaderBoardFrame.minX + 75, leaderBoardFrame.minY + 196.7))
+    bezier2Path.addLineToPoint(CGPointMake(leaderBoardFrame.minX + 23.93, leaderBoardFrame.minY + 264))
+    bezier2Path.addLineToPoint(CGPointMake(leaderBoardFrame.minX + 23, leaderBoardFrame.minY + 58.33))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 23, leaderBoardFrame.minY + 34.51), controlPoint1: CGPointMake(leaderBoardFrame.minX + 23, leaderBoardFrame.minY + 58.33), controlPoint2: CGPointMake(leaderBoardFrame.minX + 23, leaderBoardFrame.minY + 47.11))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 23, leaderBoardFrame.minY + 29.12), controlPoint1: CGPointMake(leaderBoardFrame.minX + 23, leaderBoardFrame.minY + 32.73), controlPoint2: CGPointMake(leaderBoardFrame.minX + 23, leaderBoardFrame.minY + 30.93))
+    bezier2Path.addLineToPoint(CGPointMake(leaderBoardFrame.minX + 23, leaderBoardFrame.minY + 28.38))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 23, leaderBoardFrame.minY + 0), controlPoint1: CGPointMake(leaderBoardFrame.minX + 23, leaderBoardFrame.minY + 14.17), controlPoint2: CGPointMake(leaderBoardFrame.minX + 23, leaderBoardFrame.minY + 0.21))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 23.23, leaderBoardFrame.minY + 0), controlPoint1: CGPointMake(leaderBoardFrame.minX + 23, leaderBoardFrame.minY + 0), controlPoint2: CGPointMake(leaderBoardFrame.minX + 23.08, leaderBoardFrame.minY + 0))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 94.66, leaderBoardFrame.minY), controlPoint1: CGPointMake(leaderBoardFrame.minX + 26.56, leaderBoardFrame.minY + 0), controlPoint2: CGPointMake(leaderBoardFrame.minX + 65.46, leaderBoardFrame.minY + 0))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 121.11, leaderBoardFrame.minY), controlPoint1: CGPointMake(leaderBoardFrame.minX + 105.66, leaderBoardFrame.minY), controlPoint2: CGPointMake(leaderBoardFrame.minX + 115.28, leaderBoardFrame.minY))
+    bezier2Path.addCurveToPoint(CGPointMake(leaderBoardFrame.minX + 127, leaderBoardFrame.minY), controlPoint1: CGPointMake(leaderBoardFrame.minX + 124.83, leaderBoardFrame.minY), controlPoint2: CGPointMake(leaderBoardFrame.minX + 127, leaderBoardFrame.minY))
+    bezier2Path.addLineToPoint(CGPointMake(leaderBoardFrame.minX + 127, leaderBoardFrame.minY + 0))
+    bezier2Path.closePath()
+    CGContextSaveGState(context)
+    CGContextSetShadowWithColor(context, buttonShadowOffset, buttonShadowBlurRadius, (buttonShadow as UIColor).CGColor)
+    color37.setFill()
+    bezier2Path.fill()
+    CGContextRestoreGState(context)
+
+
+    if state == .Normal {
+      //// Group
+      //// Rectangle 2 Drawing
+      let rectangle2Path = UIBezierPath(roundedRect: CGRectMake(leaderBoardFrame.minX + 63, leaderBoardFrame.minY + 99, 26, 64), cornerRadius: 2)
+      gradient3Color1.setFill()
+      rectangle2Path.fill()
+
+
+      //// Rectangle 3 Drawing
+      let rectangle3Path = UIBezierPath(roundedRect: CGRectMake(leaderBoardFrame.minX + 91, leaderBoardFrame.minY + 119, 25, 44), cornerRadius: 2)
+      gradient3Color1.setFill()
+      rectangle3Path.fill()
+
+
+      //// Rectangle 4 Drawing
+      let rectangle4Path = UIBezierPath(roundedRect: CGRectMake(leaderBoardFrame.minX + 36, leaderBoardFrame.minY + 137, 25, 26), cornerRadius: 2)
+      gradient3Color1.setFill()
+      rectangle4Path.fill()
+
+
+      //// Text 8 Drawing
+      let text8Rect = CGRectMake(leaderBoardFrame.minX + 91, leaderBoardFrame.minY + 119, 25, 44)
+      CGContextSaveGState(context)
+      CGContextSetShadowWithColor(context, shadow8Offset, shadow8BlurRadius, (shadow8 as UIColor).CGColor)
+      let text8Style = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
+      text8Style.alignment = NSTextAlignment.Center
+
+      let text8FontAttributes = [NSFontAttributeName: UIFont(name: "Arial-BoldMT", size: 23)!, NSForegroundColorAttributeName: UIColor.whiteColor(), NSParagraphStyleAttributeName: text8Style]
+
+      "2".drawInRect(text8Rect, withAttributes: text8FontAttributes)
+      CGContextRestoreGState(context)
+
+
+
+      //// Text 9 Drawing
+      let text9Rect = CGRectMake(leaderBoardFrame.minX + 36, leaderBoardFrame.minY + 137, 25, 26)
+      CGContextSaveGState(context)
+      CGContextSetShadowWithColor(context, shadow8Offset, shadow8BlurRadius, (shadow8 as UIColor).CGColor)
+      let text9Style = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
+      text9Style.alignment = NSTextAlignment.Center
+
+      let text9FontAttributes = [NSFontAttributeName: UIFont(name: "Arial-BoldMT", size: 23)!, NSForegroundColorAttributeName: UIColor.whiteColor(), NSParagraphStyleAttributeName: text9Style]
+
+      "3".drawInRect(text9Rect, withAttributes: text9FontAttributes)
+      CGContextRestoreGState(context)
+
+
+
+      //// Text 3 Drawing
+      let text3Rect = CGRectMake(leaderBoardFrame.minX + 63, leaderBoardFrame.minY + 99, 26, 64)
+      CGContextSaveGState(context)
+      CGContextSetShadowWithColor(context, shadow8Offset, shadow8BlurRadius, (shadow8 as UIColor).CGColor)
+      let text3Style = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
+      text3Style.alignment = NSTextAlignment.Center
+
+      let text3FontAttributes = [NSFontAttributeName: UIFont(name: "Arial-BoldMT", size: 23)!, NSForegroundColorAttributeName: UIColor.whiteColor(), NSParagraphStyleAttributeName: text3Style]
+
+      "1".drawInRect(text3Rect, withAttributes: text3FontAttributes)
+      CGContextRestoreGState(context)
+    }
   }
 
   private func drawLeaderboardScore(state: UIControlState) {
@@ -224,79 +385,90 @@ class ClumsySocialButton: UIButton {
     let textShadowOffset = CGSizeMake(0.1, -0.1)
     let textShadowBlurRadius: CGFloat = 5
 
-    //// Facebook Case Drawing
-    var facebookCasePath = UIBezierPath()
-    facebookCasePath.moveToPoint(CGPointMake(facebookFrame.minX + 82.35, facebookFrame.minY + 103.61))
-    facebookCasePath.addCurveToPoint(CGPointMake(facebookFrame.minX + 68.19, facebookFrame.minY + 107.32), controlPoint1: CGPointMake(facebookFrame.minX + 75.44, facebookFrame.minY + 103.61), controlPoint2: CGPointMake(facebookFrame.minX + 71.6, facebookFrame.minY + 104.43))
-    facebookCasePath.addCurveToPoint(CGPointMake(facebookFrame.minX + 63.32, facebookFrame.minY + 119.91), controlPoint1: CGPointMake(facebookFrame.minX + 64.78, facebookFrame.minY + 110.21), controlPoint2: CGPointMake(facebookFrame.minX + 63.32, facebookFrame.minY + 114.13))
-    facebookCasePath.addLineToPoint(CGPointMake(facebookFrame.minX + 63.7, facebookFrame.minY + 125.22))
-    facebookCasePath.addLineToPoint(CGPointMake(facebookFrame.minX + 56.5, facebookFrame.minY + 125.22))
-    facebookCasePath.addLineToPoint(CGPointMake(facebookFrame.minX + 56.5, facebookFrame.minY + 135.5))
-    facebookCasePath.addLineToPoint(CGPointMake(facebookFrame.minX + 63.7, facebookFrame.minY + 135.5))
-    facebookCasePath.addLineToPoint(CGPointMake(facebookFrame.minX + 63.7, facebookFrame.minY + 172.5))
-    facebookCasePath.addLineToPoint(CGPointMake(facebookFrame.minX + 80.52, facebookFrame.minY + 172.5))
-    facebookCasePath.addLineToPoint(CGPointMake(facebookFrame.minX + 80.52, facebookFrame.minY + 135.5))
-    facebookCasePath.addLineToPoint(CGPointMake(facebookFrame.minX + 92.94, facebookFrame.minY + 135.5))
-    facebookCasePath.addLineToPoint(CGPointMake(facebookFrame.minX + 92.94, facebookFrame.minY + 125.22))
-    facebookCasePath.addLineToPoint(CGPointMake(facebookFrame.minX + 79.96, facebookFrame.minY + 125.22))
-    facebookCasePath.addLineToPoint(CGPointMake(facebookFrame.minX + 79.96, facebookFrame.minY + 124.85))
-    facebookCasePath.addCurveToPoint(CGPointMake(facebookFrame.minX + 80.86, facebookFrame.minY + 116.2), controlPoint1: CGPointMake(facebookFrame.minX + 79.96, facebookFrame.minY + 121.79), controlPoint2: CGPointMake(facebookFrame.minX + 79.69, facebookFrame.minY + 117.27))
-    facebookCasePath.addCurveToPoint(CGPointMake(facebookFrame.minX + 86.46, facebookFrame.minY + 114.09), controlPoint1: CGPointMake(facebookFrame.minX + 82.03, facebookFrame.minY + 115.14), controlPoint2: CGPointMake(facebookFrame.minX + 83.16, facebookFrame.minY + 114.09))
-    facebookCasePath.addCurveToPoint(CGPointMake(facebookFrame.minX + 94.5, facebookFrame.minY + 113.98), controlPoint1: CGPointMake(facebookFrame.minX + 87.83, facebookFrame.minY + 114.09), controlPoint2: CGPointMake(facebookFrame.minX + 94.5, facebookFrame.minY + 113.98))
-    facebookCasePath.addLineToPoint(CGPointMake(facebookFrame.minX + 94.5, facebookFrame.minY + 103.61))
-    facebookCasePath.addCurveToPoint(CGPointMake(facebookFrame.minX + 82.35, facebookFrame.minY + 103.61), controlPoint1: CGPointMake(facebookFrame.minX + 92.94, facebookFrame.minY + 103.36), controlPoint2: CGPointMake(facebookFrame.minX + 84.84, facebookFrame.minY + 103.61))
-    facebookCasePath.closePath()
-    facebookCasePath.moveToPoint(CGPointMake(facebookFrame.minX + 136, facebookFrame.minY + 0))
-    facebookCasePath.addCurveToPoint(CGPointMake(facebookFrame.minX + 136, facebookFrame.minY + 62.3), controlPoint1: CGPointMake(facebookFrame.minX + 136, facebookFrame.minY), controlPoint2: CGPointMake(facebookFrame.minX + 136, facebookFrame.minY + 62.3))
-    facebookCasePath.addLineToPoint(CGPointMake(facebookFrame.minX + 136, facebookFrame.minY + 282))
-    facebookCasePath.addLineToPoint(CGPointMake(facebookFrame.minX + 75, facebookFrame.minY + 210.11))
-    facebookCasePath.addLineToPoint(CGPointMake(facebookFrame.minX + 15.09, facebookFrame.minY + 282))
-    facebookCasePath.addLineToPoint(CGPointMake(facebookFrame.minX + 14, facebookFrame.minY + 62.3))
-    facebookCasePath.addLineToPoint(CGPointMake(facebookFrame.minX + 14, facebookFrame.minY))
-    facebookCasePath.addLineToPoint(CGPointMake(facebookFrame.minX + 136, facebookFrame.minY))
-    facebookCasePath.addLineToPoint(CGPointMake(facebookFrame.minX + 136, facebookFrame.minY + 0))
-    facebookCasePath.closePath()
+    //// Facebook Button
+    //// Bezier 5 Drawing
+    var bezier5Path = UIBezierPath()
+    bezier5Path.moveToPoint(CGPointMake(facebookFrame.minX + 80.08, facebookFrame.minY + 98.15))
+    bezier5Path.addCurveToPoint(CGPointMake(facebookFrame.minX + 67.22, facebookFrame.minY + 102.39), controlPoint1: CGPointMake(facebookFrame.minX + 74.34, facebookFrame.minY + 98.15), controlPoint2: CGPointMake(facebookFrame.minX + 70.06, facebookFrame.minY + 99.56))
+    bezier5Path.addCurveToPoint(CGPointMake(facebookFrame.minX + 62.98, facebookFrame.minY + 115.13), controlPoint1: CGPointMake(facebookFrame.minX + 64.39, facebookFrame.minY + 105.22), controlPoint2: CGPointMake(facebookFrame.minX + 62.98, facebookFrame.minY + 109.47))
+    bezier5Path.addLineToPoint(CGPointMake(facebookFrame.minX + 62.98, facebookFrame.minY + 116.41))
+    bezier5Path.addLineToPoint(CGPointMake(facebookFrame.minX + 57, facebookFrame.minY + 116.41))
+    bezier5Path.addLineToPoint(CGPointMake(facebookFrame.minX + 57, facebookFrame.minY + 126.47))
+    bezier5Path.addLineToPoint(CGPointMake(facebookFrame.minX + 62.98, facebookFrame.minY + 126.47))
+    bezier5Path.addLineToPoint(CGPointMake(facebookFrame.minX + 62.98, facebookFrame.minY + 162.7))
+    bezier5Path.addLineToPoint(CGPointMake(facebookFrame.minX + 76.94, facebookFrame.minY + 162.7))
+    bezier5Path.addLineToPoint(CGPointMake(facebookFrame.minX + 76.94, facebookFrame.minY + 126.47))
+    bezier5Path.addLineToPoint(CGPointMake(facebookFrame.minX + 87.26, facebookFrame.minY + 126.47))
+    bezier5Path.addLineToPoint(CGPointMake(facebookFrame.minX + 87.26, facebookFrame.minY + 116.41))
+    bezier5Path.addLineToPoint(CGPointMake(facebookFrame.minX + 76.48, facebookFrame.minY + 116.41))
+    bezier5Path.addLineToPoint(CGPointMake(facebookFrame.minX + 76.48, facebookFrame.minY + 116.04))
+    bezier5Path.addCurveToPoint(CGPointMake(facebookFrame.minX + 77.93, facebookFrame.minY + 109.98), controlPoint1: CGPointMake(facebookFrame.minX + 76.48, facebookFrame.minY + 113.04), controlPoint2: CGPointMake(facebookFrame.minX + 76.96, facebookFrame.minY + 111.02))
+    bezier5Path.addCurveToPoint(CGPointMake(facebookFrame.minX + 83.5, facebookFrame.minY + 108.41), controlPoint1: CGPointMake(facebookFrame.minX + 78.9, facebookFrame.minY + 108.93), controlPoint2: CGPointMake(facebookFrame.minX + 80.76, facebookFrame.minY + 108.41))
+    bezier5Path.addCurveToPoint(CGPointMake(facebookFrame.minX + 86.7, facebookFrame.minY + 108.78), controlPoint1: CGPointMake(facebookFrame.minX + 84.63, facebookFrame.minY + 108.41), controlPoint2: CGPointMake(facebookFrame.minX + 85.7, facebookFrame.minY + 108.53))
+    bezier5Path.addCurveToPoint(CGPointMake(facebookFrame.minX + 89.12, facebookFrame.minY + 109.44), controlPoint1: CGPointMake(facebookFrame.minX + 87.69, facebookFrame.minY + 109.03), controlPoint2: CGPointMake(facebookFrame.minX + 88.5, facebookFrame.minY + 109.25))
+    bezier5Path.addLineToPoint(CGPointMake(facebookFrame.minX + 90.17, facebookFrame.minY + 109.44))
+    bezier5Path.addLineToPoint(CGPointMake(facebookFrame.minX + 90.17, facebookFrame.minY + 98.97))
+    bezier5Path.addCurveToPoint(CGPointMake(facebookFrame.minX + 85.71, facebookFrame.minY + 98.37), controlPoint1: CGPointMake(facebookFrame.minX + 88.88, facebookFrame.minY + 98.72), controlPoint2: CGPointMake(facebookFrame.minX + 87.39, facebookFrame.minY + 98.52))
+    bezier5Path.addCurveToPoint(CGPointMake(facebookFrame.minX + 80.08, facebookFrame.minY + 98.15), controlPoint1: CGPointMake(facebookFrame.minX + 84.03, facebookFrame.minY + 98.22), controlPoint2: CGPointMake(facebookFrame.minX + 82.15, facebookFrame.minY + 98.15))
+    bezier5Path.closePath()
+    bezier5Path.moveToPoint(CGPointMake(facebookFrame.minX + 127, facebookFrame.minY + 264))
+    bezier5Path.addLineToPoint(CGPointMake(facebookFrame.minX + 75, facebookFrame.minY + 196.7))
+    bezier5Path.addLineToPoint(CGPointMake(facebookFrame.minX + 23.93, facebookFrame.minY + 264))
+    bezier5Path.addLineToPoint(CGPointMake(facebookFrame.minX + 23, facebookFrame.minY + 58.33))
+    bezier5Path.addLineToPoint(CGPointMake(facebookFrame.minX + 127, facebookFrame.minY + 58.33))
+    bezier5Path.addLineToPoint(CGPointMake(facebookFrame.minX + 127, facebookFrame.minY + 264))
+    bezier5Path.closePath()
+    bezier5Path.moveToPoint(CGPointMake(facebookFrame.minX + 23, facebookFrame.minY + 58.33))
+    bezier5Path.addLineToPoint(CGPointMake(facebookFrame.minX + 127, facebookFrame.minY + 58.33))
+    bezier5Path.addLineToPoint(CGPointMake(facebookFrame.minX + 127, facebookFrame.minY))
+    bezier5Path.addLineToPoint(CGPointMake(facebookFrame.minX + 23, facebookFrame.minY))
+    bezier5Path.addLineToPoint(CGPointMake(facebookFrame.minX + 23, facebookFrame.minY + 58.33))
+    bezier5Path.closePath()
     CGContextSaveGState(context)
-    CGContextSetShadowWithColor(context, buttonShadowOffset, buttonShadowBlurRadius, buttonShadow.CGColor)
+    CGContextSetShadowWithColor(context, buttonShadowOffset, buttonShadowBlurRadius, (buttonShadow as UIColor).CGColor)
     facebookColor.setFill()
-    facebookCasePath.fill()
+    bezier5Path.fill()
     CGContextRestoreGState(context)
 
-    if(state == .Normal) {
-      //// Facebook Letter Drawing
-      var facebookLetterPath = UIBezierPath()
-      facebookLetterPath.moveToPoint(CGPointMake(facebookFrame.minX + 95.5, facebookFrame.minY + 113.79))
-      facebookLetterPath.addCurveToPoint(CGPointMake(facebookFrame.minX + 87.04, facebookFrame.minY + 113.9), controlPoint1: CGPointMake(facebookFrame.minX + 95.5, facebookFrame.minY + 113.79), controlPoint2: CGPointMake(facebookFrame.minX + 88.48, facebookFrame.minY + 113.9))
-      facebookLetterPath.addCurveToPoint(CGPointMake(facebookFrame.minX + 81.14, facebookFrame.minY + 116.07), controlPoint1: CGPointMake(facebookFrame.minX + 83.56, facebookFrame.minY + 113.9), controlPoint2: CGPointMake(facebookFrame.minX + 82.37, facebookFrame.minY + 114.98))
-      facebookLetterPath.addCurveToPoint(CGPointMake(facebookFrame.minX + 80.19, facebookFrame.minY + 124.96), controlPoint1: CGPointMake(facebookFrame.minX + 79.91, facebookFrame.minY + 117.17), controlPoint2: CGPointMake(facebookFrame.minX + 80.19, facebookFrame.minY + 121.82))
-      facebookLetterPath.addLineToPoint(CGPointMake(facebookFrame.minX + 80.19, facebookFrame.minY + 125.35))
-      facebookLetterPath.addLineToPoint(CGPointMake(facebookFrame.minX + 93.86, facebookFrame.minY + 125.35))
-      facebookLetterPath.addLineToPoint(CGPointMake(facebookFrame.minX + 93.86, facebookFrame.minY + 135.92))
-      facebookLetterPath.addLineToPoint(CGPointMake(facebookFrame.minX + 80.78, facebookFrame.minY + 135.92))
-      facebookLetterPath.addLineToPoint(CGPointMake(facebookFrame.minX + 80.78, facebookFrame.minY + 174))
-      facebookLetterPath.addLineToPoint(CGPointMake(facebookFrame.minX + 63.07, facebookFrame.minY + 174))
-      facebookLetterPath.addLineToPoint(CGPointMake(facebookFrame.minX + 63.07, facebookFrame.minY + 135.92))
-      facebookLetterPath.addLineToPoint(CGPointMake(facebookFrame.minX + 55.5, facebookFrame.minY + 135.92))
-      facebookLetterPath.addLineToPoint(CGPointMake(facebookFrame.minX + 55.5, facebookFrame.minY + 125.35))
-      facebookLetterPath.addLineToPoint(CGPointMake(facebookFrame.minX + 63.07, facebookFrame.minY + 125.35))
-      facebookLetterPath.addLineToPoint(CGPointMake(facebookFrame.minX + 62.68, facebookFrame.minY + 119.88))
-      facebookLetterPath.addCurveToPoint(CGPointMake(facebookFrame.minX + 67.81, facebookFrame.minY + 106.93), controlPoint1: CGPointMake(facebookFrame.minX + 62.68, facebookFrame.minY + 113.93), controlPoint2: CGPointMake(facebookFrame.minX + 64.22, facebookFrame.minY + 109.9))
-      facebookLetterPath.addCurveToPoint(CGPointMake(facebookFrame.minX + 82.71, facebookFrame.minY + 103.12), controlPoint1: CGPointMake(facebookFrame.minX + 71.4, facebookFrame.minY + 103.95), controlPoint2: CGPointMake(facebookFrame.minX + 75.43, facebookFrame.minY + 103.12))
-      facebookLetterPath.addCurveToPoint(CGPointMake(facebookFrame.minX + 95.5, facebookFrame.minY + 103.12), controlPoint1: CGPointMake(facebookFrame.minX + 85.34, facebookFrame.minY + 103.12), controlPoint2: CGPointMake(facebookFrame.minX + 93.86, facebookFrame.minY + 102.86))
-      facebookLetterPath.addLineToPoint(CGPointMake(facebookFrame.minX + 95.5, facebookFrame.minY + 113.79))
-      facebookLetterPath.closePath()
+
+    if state == .Normal {
+      //// Text 2 Drawing
+      var text2Path = UIBezierPath()
+      text2Path.moveToPoint(CGPointMake(facebookFrame.minX + 91.5, facebookFrame.minY + 109.44))
+      text2Path.addLineToPoint(CGPointMake(facebookFrame.minX + 90.4, facebookFrame.minY + 109.44))
+      text2Path.addCurveToPoint(CGPointMake(facebookFrame.minX + 87.86, facebookFrame.minY + 108.77), controlPoint1: CGPointMake(facebookFrame.minX + 89.75, facebookFrame.minY + 109.24), controlPoint2: CGPointMake(facebookFrame.minX + 88.91, facebookFrame.minY + 109.02))
+      text2Path.addCurveToPoint(CGPointMake(facebookFrame.minX + 84.51, facebookFrame.minY + 108.39), controlPoint1: CGPointMake(facebookFrame.minX + 86.82, facebookFrame.minY + 108.52), controlPoint2: CGPointMake(facebookFrame.minX + 85.7, facebookFrame.minY + 108.39))
+      text2Path.addCurveToPoint(CGPointMake(facebookFrame.minX + 78.68, facebookFrame.minY + 109.98), controlPoint1: CGPointMake(facebookFrame.minX + 81.64, facebookFrame.minY + 108.39), controlPoint2: CGPointMake(facebookFrame.minX + 79.7, facebookFrame.minY + 108.92))
+      text2Path.addCurveToPoint(CGPointMake(facebookFrame.minX + 77.16, facebookFrame.minY + 116.13), controlPoint1: CGPointMake(facebookFrame.minX + 77.67, facebookFrame.minY + 111.04), controlPoint2: CGPointMake(facebookFrame.minX + 77.16, facebookFrame.minY + 113.09))
+      text2Path.addLineToPoint(CGPointMake(facebookFrame.minX + 77.16, facebookFrame.minY + 116.51))
+      text2Path.addLineToPoint(CGPointMake(facebookFrame.minX + 88.45, facebookFrame.minY + 116.51))
+      text2Path.addLineToPoint(CGPointMake(facebookFrame.minX + 88.45, facebookFrame.minY + 126.72))
+      text2Path.addLineToPoint(CGPointMake(facebookFrame.minX + 77.65, facebookFrame.minY + 126.72))
+      text2Path.addLineToPoint(CGPointMake(facebookFrame.minX + 77.65, facebookFrame.minY + 163.5))
+      text2Path.addLineToPoint(CGPointMake(facebookFrame.minX + 63.03, facebookFrame.minY + 163.5))
+      text2Path.addLineToPoint(CGPointMake(facebookFrame.minX + 63.03, facebookFrame.minY + 126.72))
+      text2Path.addLineToPoint(CGPointMake(facebookFrame.minX + 56.77, facebookFrame.minY + 126.72))
+      text2Path.addLineToPoint(CGPointMake(facebookFrame.minX + 56.77, facebookFrame.minY + 116.51))
+      text2Path.addLineToPoint(CGPointMake(facebookFrame.minX + 63.03, facebookFrame.minY + 116.51))
+      text2Path.addLineToPoint(CGPointMake(facebookFrame.minX + 63.03, facebookFrame.minY + 115.21))
+      text2Path.addCurveToPoint(CGPointMake(facebookFrame.minX + 67.47, facebookFrame.minY + 102.28), controlPoint1: CGPointMake(facebookFrame.minX + 63.03, facebookFrame.minY + 109.47), controlPoint2: CGPointMake(facebookFrame.minX + 64.51, facebookFrame.minY + 105.16))
+      text2Path.addCurveToPoint(CGPointMake(facebookFrame.minX + 80.94, facebookFrame.minY + 97.97), controlPoint1: CGPointMake(facebookFrame.minX + 70.44, facebookFrame.minY + 99.41), controlPoint2: CGPointMake(facebookFrame.minX + 74.93, facebookFrame.minY + 97.97))
+      text2Path.addCurveToPoint(CGPointMake(facebookFrame.minX + 86.83, facebookFrame.minY + 98.2), controlPoint1: CGPointMake(facebookFrame.minX + 83.11, facebookFrame.minY + 97.97), controlPoint2: CGPointMake(facebookFrame.minX + 85.07, facebookFrame.minY + 98.05))
+      text2Path.addCurveToPoint(CGPointMake(facebookFrame.minX + 91.5, facebookFrame.minY + 98.81), controlPoint1: CGPointMake(facebookFrame.minX + 88.59, facebookFrame.minY + 98.36), controlPoint2: CGPointMake(facebookFrame.minX + 90.15, facebookFrame.minY + 98.56))
+      text2Path.addLineToPoint(CGPointMake(facebookFrame.minX + 91.5, facebookFrame.minY + 109.44))
+      text2Path.closePath()
       CGContextSaveGState(context)
-      CGContextSetShadowWithColor(context, textShadowOffset, textShadowBlurRadius, textShadow.CGColor)
+      CGContextSetShadowWithColor(context, textShadowOffset, textShadowBlurRadius, (textShadow as UIColor).CGColor)
       fillColor.setFill()
-      facebookLetterPath.fill()
+      text2Path.fill()
       CGContextRestoreGState(context)
 
       fillColor.setStroke()
-      facebookLetterPath.lineWidth = 1
-      facebookLetterPath.stroke()
+      text2Path.lineWidth = 1
+      text2Path.stroke()
     }
-
   }
+
 
   private func drawTwitterShare(state: UIControlState) {
     //// General Declarations
@@ -316,72 +488,92 @@ class ClumsySocialButton: UIButton {
     let textShadowOffset = CGSizeMake(0.1, -0.1)
     let textShadowBlurRadius: CGFloat = 5
 
-    //// Twitter Case Drawing
-    var twitterCasePath = UIBezierPath()
-    twitterCasePath.moveToPoint(CGPointMake(twitterFrame.minX + 55.22, twitterFrame.minY + 109.02))
-    twitterCasePath.addCurveToPoint(CGPointMake(twitterFrame.minX + 53, twitterFrame.minY + 115.27), controlPoint1: CGPointMake(twitterFrame.minX + 53.35, twitterFrame.minY + 110.72), controlPoint2: CGPointMake(twitterFrame.minX + 53, twitterFrame.minY + 115.27))
-    twitterCasePath.addLineToPoint(CGPointMake(twitterFrame.minX + 53, twitterFrame.minY + 150.58))
-    twitterCasePath.addCurveToPoint(CGPointMake(twitterFrame.minX + 71.58, twitterFrame.minY + 170.44), controlPoint1: CGPointMake(twitterFrame.minX + 53, twitterFrame.minY + 150.58), controlPoint2: CGPointMake(twitterFrame.minX + 53.26, twitterFrame.minY + 167.41))
-    twitterCasePath.addLineToPoint(CGPointMake(twitterFrame.minX + 91.46, twitterFrame.minY + 170.44))
-    twitterCasePath.addCurveToPoint(CGPointMake(twitterFrame.minX + 96.08, twitterFrame.minY + 168.1), controlPoint1: CGPointMake(twitterFrame.minX + 93.13, twitterFrame.minY + 170.44), controlPoint2: CGPointMake(twitterFrame.minX + 94.81, twitterFrame.minY + 169.66))
-    twitterCasePath.addCurveToPoint(CGPointMake(twitterFrame.minX + 96.08, twitterFrame.minY + 156.78), controlPoint1: CGPointMake(twitterFrame.minX + 98.64, twitterFrame.minY + 164.97), controlPoint2: CGPointMake(twitterFrame.minX + 98.64, twitterFrame.minY + 159.91))
-    twitterCasePath.addCurveToPoint(CGPointMake(twitterFrame.minX + 91.46, twitterFrame.minY + 154.44), controlPoint1: CGPointMake(twitterFrame.minX + 94.81, twitterFrame.minY + 155.22), controlPoint2: CGPointMake(twitterFrame.minX + 93.13, twitterFrame.minY + 154.44))
-    twitterCasePath.addLineToPoint(CGPointMake(twitterFrame.minX + 73.64, twitterFrame.minY + 154.44))
-    twitterCasePath.addCurveToPoint(CGPointMake(twitterFrame.minX + 68.17, twitterFrame.minY + 141.2), controlPoint1: CGPointMake(twitterFrame.minX + 71.65, twitterFrame.minY + 153.4), controlPoint2: CGPointMake(twitterFrame.minX + 67.39, twitterFrame.minY + 153.61))
-    twitterCasePath.addLineToPoint(CGPointMake(twitterFrame.minX + 89.89, twitterFrame.minY + 141.2))
-    twitterCasePath.addCurveToPoint(CGPointMake(twitterFrame.minX + 94.25, twitterFrame.minY + 139.02), controlPoint1: CGPointMake(twitterFrame.minX + 91.48, twitterFrame.minY + 141.12), controlPoint2: CGPointMake(twitterFrame.minX + 93.04, twitterFrame.minY + 140.4))
-    twitterCasePath.addCurveToPoint(CGPointMake(twitterFrame.minX + 94.25, twitterFrame.minY + 128.49), controlPoint1: CGPointMake(twitterFrame.minX + 96.81, twitterFrame.minY + 136.11), controlPoint2: CGPointMake(twitterFrame.minX + 96.81, twitterFrame.minY + 131.4))
-    twitterCasePath.addCurveToPoint(CGPointMake(twitterFrame.minX + 89.89, twitterFrame.minY + 126.31), controlPoint1: CGPointMake(twitterFrame.minX + 93.04, twitterFrame.minY + 127.11), controlPoint2: CGPointMake(twitterFrame.minX + 91.48, twitterFrame.minY + 126.39))
-    twitterCasePath.addLineToPoint(CGPointMake(twitterFrame.minX + 68.17, twitterFrame.minY + 126.31))
-    twitterCasePath.addCurveToPoint(CGPointMake(twitterFrame.minX + 68.17, twitterFrame.minY + 115.27), controlPoint1: CGPointMake(twitterFrame.minX + 68.17, twitterFrame.minY + 120.17), controlPoint2: CGPointMake(twitterFrame.minX + 68.17, twitterFrame.minY + 115.27))
-    twitterCasePath.addCurveToPoint(CGPointMake(twitterFrame.minX + 65.95, twitterFrame.minY + 109.02), controlPoint1: CGPointMake(twitterFrame.minX + 68.17, twitterFrame.minY + 115.27), controlPoint2: CGPointMake(twitterFrame.minX + 67.82, twitterFrame.minY + 110.72))
-    twitterCasePath.addCurveToPoint(CGPointMake(twitterFrame.minX + 55.22, twitterFrame.minY + 109.02), controlPoint1: CGPointMake(twitterFrame.minX + 62.99, twitterFrame.minY + 106.33), controlPoint2: CGPointMake(twitterFrame.minX + 58.19, twitterFrame.minY + 106.33))
-    twitterCasePath.closePath()
-    twitterCasePath.moveToPoint(CGPointMake(twitterFrame.minX + 136, twitterFrame.minY + 0))
-    twitterCasePath.addCurveToPoint(CGPointMake(twitterFrame.minX + 136, twitterFrame.minY + 62.3), controlPoint1: CGPointMake(twitterFrame.minX + 136, twitterFrame.minY), controlPoint2: CGPointMake(twitterFrame.minX + 136, twitterFrame.minY + 62.3))
-    twitterCasePath.addLineToPoint(CGPointMake(twitterFrame.minX + 136, twitterFrame.minY + 282))
-    twitterCasePath.addLineToPoint(CGPointMake(twitterFrame.minX + 75, twitterFrame.minY + 210.11))
-    twitterCasePath.addLineToPoint(CGPointMake(twitterFrame.minX + 15.09, twitterFrame.minY + 282))
-    twitterCasePath.addLineToPoint(CGPointMake(twitterFrame.minX + 14, twitterFrame.minY + 62.3))
-    twitterCasePath.addLineToPoint(CGPointMake(twitterFrame.minX + 14, twitterFrame.minY))
-    twitterCasePath.addLineToPoint(CGPointMake(twitterFrame.minX + 136, twitterFrame.minY))
-    twitterCasePath.addLineToPoint(CGPointMake(twitterFrame.minX + 136, twitterFrame.minY + 0))
-    twitterCasePath.closePath()
+    //// Twitter Button
+    //// Bezier 4 Drawing
+    var bezier4Path = UIBezierPath()
+    bezier4Path.moveToPoint(CGPointMake(twitterFrame.minX + 78.19, twitterFrame.minY + 98.5))
+    bezier4Path.addLineToPoint(CGPointMake(twitterFrame.minX + 62.91, twitterFrame.minY + 98.5))
+    bezier4Path.addCurveToPoint(CGPointMake(twitterFrame.minX + 62.91, twitterFrame.minY + 111.75), controlPoint1: CGPointMake(twitterFrame.minX + 62.91, twitterFrame.minY + 98.5), controlPoint2: CGPointMake(twitterFrame.minX + 62.91, twitterFrame.minY + 108.29))
+    bezier4Path.addCurveToPoint(CGPointMake(twitterFrame.minX + 62.91, twitterFrame.minY + 112.95), controlPoint1: CGPointMake(twitterFrame.minX + 62.91, twitterFrame.minY + 112.5), controlPoint2: CGPointMake(twitterFrame.minX + 62.91, twitterFrame.minY + 112.95))
+    bezier4Path.addLineToPoint(CGPointMake(twitterFrame.minX + 56.62, twitterFrame.minY + 112.95))
+    bezier4Path.addLineToPoint(CGPointMake(twitterFrame.minX + 56.62, twitterFrame.minY + 123.94))
+    bezier4Path.addLineToPoint(CGPointMake(twitterFrame.minX + 62.91, twitterFrame.minY + 123.94))
+    bezier4Path.addLineToPoint(CGPointMake(twitterFrame.minX + 62.91, twitterFrame.minY + 147.57))
+    bezier4Path.addCurveToPoint(CGPointMake(twitterFrame.minX + 67.26, twitterFrame.minY + 160.67), controlPoint1: CGPointMake(twitterFrame.minX + 62.91, twitterFrame.minY + 153.76), controlPoint2: CGPointMake(twitterFrame.minX + 64.36, twitterFrame.minY + 158.12))
+    bezier4Path.addCurveToPoint(CGPointMake(twitterFrame.minX + 80.53, twitterFrame.minY + 164.5), controlPoint1: CGPointMake(twitterFrame.minX + 70.16, twitterFrame.minY + 163.22), controlPoint2: CGPointMake(twitterFrame.minX + 74.58, twitterFrame.minY + 164.5))
+    bezier4Path.addCurveToPoint(CGPointMake(twitterFrame.minX + 87.28, twitterFrame.minY + 164.12), controlPoint1: CGPointMake(twitterFrame.minX + 83.19, twitterFrame.minY + 164.5), controlPoint2: CGPointMake(twitterFrame.minX + 85.44, twitterFrame.minY + 164.37))
+    bezier4Path.addCurveToPoint(CGPointMake(twitterFrame.minX + 92.5, twitterFrame.minY + 163.06), controlPoint1: CGPointMake(twitterFrame.minX + 89.12, twitterFrame.minY + 163.86), controlPoint2: CGPointMake(twitterFrame.minX + 90.86, twitterFrame.minY + 163.51))
+    bezier4Path.addLineToPoint(CGPointMake(twitterFrame.minX + 92.5, twitterFrame.minY + 151.94))
+    bezier4Path.addLineToPoint(CGPointMake(twitterFrame.minX + 91.23, twitterFrame.minY + 151.94))
+    bezier4Path.addCurveToPoint(CGPointMake(twitterFrame.minX + 88.53, twitterFrame.minY + 152.93), controlPoint1: CGPointMake(twitterFrame.minX + 90.72, twitterFrame.minY + 152.24), controlPoint2: CGPointMake(twitterFrame.minX + 89.82, twitterFrame.minY + 152.57))
+    bezier4Path.addCurveToPoint(CGPointMake(twitterFrame.minX + 86.35, twitterFrame.minY + 153.4), controlPoint1: CGPointMake(twitterFrame.minX + 87.7, twitterFrame.minY + 153.16), controlPoint2: CGPointMake(twitterFrame.minX + 86.97, twitterFrame.minY + 153.32))
+    bezier4Path.addCurveToPoint(CGPointMake(twitterFrame.minX + 85.41, twitterFrame.minY + 153.47), controlPoint1: CGPointMake(twitterFrame.minX + 86.01, twitterFrame.minY + 153.45), controlPoint2: CGPointMake(twitterFrame.minX + 85.69, twitterFrame.minY + 153.47))
+    bezier4Path.addCurveToPoint(CGPointMake(twitterFrame.minX + 81.02, twitterFrame.minY + 152.55), controlPoint1: CGPointMake(twitterFrame.minX + 83.48, twitterFrame.minY + 153.47), controlPoint2: CGPointMake(twitterFrame.minX + 82.02, twitterFrame.minY + 153.16))
+    bezier4Path.addCurveToPoint(CGPointMake(twitterFrame.minX + 78.91, twitterFrame.minY + 150.05), controlPoint1: CGPointMake(twitterFrame.minX + 80.01, twitterFrame.minY + 151.93), controlPoint2: CGPointMake(twitterFrame.minX + 79.31, twitterFrame.minY + 151.1))
+    bezier4Path.addCurveToPoint(CGPointMake(twitterFrame.minX + 78.23, twitterFrame.minY + 146.49), controlPoint1: CGPointMake(twitterFrame.minX + 78.49, twitterFrame.minY + 149), controlPoint2: CGPointMake(twitterFrame.minX + 78.26, twitterFrame.minY + 147.81))
+    bezier4Path.addCurveToPoint(CGPointMake(twitterFrame.minX + 78.19, twitterFrame.minY + 141.85), controlPoint1: CGPointMake(twitterFrame.minX + 78.21, twitterFrame.minY + 145.17), controlPoint2: CGPointMake(twitterFrame.minX + 78.19, twitterFrame.minY + 143.63))
+    bezier4Path.addCurveToPoint(CGPointMake(twitterFrame.minX + 78.19, twitterFrame.minY + 138.91), controlPoint1: CGPointMake(twitterFrame.minX + 78.19, twitterFrame.minY + 141.85), controlPoint2: CGPointMake(twitterFrame.minX + 78.19, twitterFrame.minY + 140.67))
+    bezier4Path.addCurveToPoint(CGPointMake(twitterFrame.minX + 78.19, twitterFrame.minY + 123.94), controlPoint1: CGPointMake(twitterFrame.minX + 78.19, twitterFrame.minY + 133.82), controlPoint2: CGPointMake(twitterFrame.minX + 78.19, twitterFrame.minY + 123.94))
+    bezier4Path.addLineToPoint(CGPointMake(twitterFrame.minX + 92.5, twitterFrame.minY + 123.94))
+    bezier4Path.addLineToPoint(CGPointMake(twitterFrame.minX + 92.5, twitterFrame.minY + 112.95))
+    bezier4Path.addLineToPoint(CGPointMake(twitterFrame.minX + 78.19, twitterFrame.minY + 112.95))
+    bezier4Path.addLineToPoint(CGPointMake(twitterFrame.minX + 78.19, twitterFrame.minY + 98.5))
+    bezier4Path.closePath()
+    bezier4Path.moveToPoint(CGPointMake(twitterFrame.minX + 127, twitterFrame.minY + 0))
+    bezier4Path.addCurveToPoint(CGPointMake(twitterFrame.minX + 127, twitterFrame.minY + 58.33), controlPoint1: CGPointMake(twitterFrame.minX + 127, twitterFrame.minY), controlPoint2: CGPointMake(twitterFrame.minX + 127, twitterFrame.minY + 58.33))
+    bezier4Path.addLineToPoint(CGPointMake(twitterFrame.minX + 127, twitterFrame.minY + 264))
+    bezier4Path.addLineToPoint(CGPointMake(twitterFrame.minX + 75, twitterFrame.minY + 196.7))
+    bezier4Path.addLineToPoint(CGPointMake(twitterFrame.minX + 23.93, twitterFrame.minY + 264))
+    bezier4Path.addLineToPoint(CGPointMake(twitterFrame.minX + 23, twitterFrame.minY + 58.33))
+    bezier4Path.addCurveToPoint(CGPointMake(twitterFrame.minX + 23, twitterFrame.minY + 28.38), controlPoint1: CGPointMake(twitterFrame.minX + 23, twitterFrame.minY + 58.33), controlPoint2: CGPointMake(twitterFrame.minX + 23, twitterFrame.minY + 43.22))
+    bezier4Path.addCurveToPoint(CGPointMake(twitterFrame.minX + 23, twitterFrame.minY + 0), controlPoint1: CGPointMake(twitterFrame.minX + 23, twitterFrame.minY + 14.17), controlPoint2: CGPointMake(twitterFrame.minX + 23, twitterFrame.minY + 0.21))
+    bezier4Path.addLineToPoint(CGPointMake(twitterFrame.minX + 127, twitterFrame.minY))
+    bezier4Path.addLineToPoint(CGPointMake(twitterFrame.minX + 127, twitterFrame.minY + 0))
+    bezier4Path.closePath()
     CGContextSaveGState(context)
-    CGContextSetShadowWithColor(context, buttonShadowOffset, buttonShadowBlurRadius, buttonShadow.CGColor)
+    CGContextSetShadowWithColor(context, buttonShadowOffset, buttonShadowBlurRadius, (buttonShadow as UIColor).CGColor)
     twitterColor.setFill()
-    twitterCasePath.fill()
+    bezier4Path.fill()
     CGContextRestoreGState(context)
 
 
-    if (state == .Normal) {
-      //// Twitter Letter Drawing
-      var twitterLetterPath = UIBezierPath()
-      twitterLetterPath.moveToPoint(CGPointMake(twitterFrame.minX + 74, twitterFrame.minY + 154))
-      twitterLetterPath.addLineToPoint(CGPointMake(twitterFrame.minX + 92, twitterFrame.minY + 154))
-      twitterLetterPath.addCurveToPoint(CGPointMake(twitterFrame.minX + 97.04, twitterFrame.minY + 157.34), controlPoint1: CGPointMake(twitterFrame.minX + 93.71, twitterFrame.minY + 154), controlPoint2: CGPointMake(twitterFrame.minX + 95.74, twitterFrame.minY + 155.73))
-      twitterLetterPath.addCurveToPoint(CGPointMake(twitterFrame.minX + 97.04, twitterFrame.minY + 169.01), controlPoint1: CGPointMake(twitterFrame.minX + 99.65, twitterFrame.minY + 160.56), controlPoint2: CGPointMake(twitterFrame.minX + 99.65, twitterFrame.minY + 165.78))
-      twitterLetterPath.addCurveToPoint(CGPointMake(twitterFrame.minX + 92.31, twitterFrame.minY + 171.42), controlPoint1: CGPointMake(twitterFrame.minX + 95.74, twitterFrame.minY + 170.62), controlPoint2: CGPointMake(twitterFrame.minX + 94.03, twitterFrame.minY + 171.42))
-      twitterLetterPath.addLineToPoint(CGPointMake(twitterFrame.minX + 71.99, twitterFrame.minY + 171.42))
-      twitterLetterPath.addCurveToPoint(CGPointMake(twitterFrame.minX + 71.99, twitterFrame.minY + 171.42), controlPoint1: CGPointMake(twitterFrame.minX + 71.99, twitterFrame.minY + 171.42), controlPoint2: CGPointMake(twitterFrame.minX + 71.99, twitterFrame.minY + 172.72))
-      twitterLetterPath.addCurveToPoint(CGPointMake(twitterFrame.minX + 53, twitterFrame.minY + 150.94), controlPoint1: CGPointMake(twitterFrame.minX + 53.27, twitterFrame.minY + 168.29), controlPoint2: CGPointMake(twitterFrame.minX + 53, twitterFrame.minY + 150.94))
-      twitterLetterPath.addLineToPoint(CGPointMake(twitterFrame.minX + 53, twitterFrame.minY + 114.53))
-      twitterLetterPath.addCurveToPoint(CGPointMake(twitterFrame.minX + 55.27, twitterFrame.minY + 108.08), controlPoint1: CGPointMake(twitterFrame.minX + 53, twitterFrame.minY + 114.53), controlPoint2: CGPointMake(twitterFrame.minX + 53.36, twitterFrame.minY + 109.84))
-      twitterLetterPath.addCurveToPoint(CGPointMake(twitterFrame.minX + 66.24, twitterFrame.minY + 108.08), controlPoint1: CGPointMake(twitterFrame.minX + 58.3, twitterFrame.minY + 105.31), controlPoint2: CGPointMake(twitterFrame.minX + 63.21, twitterFrame.minY + 105.31))
-      twitterLetterPath.addCurveToPoint(CGPointMake(twitterFrame.minX + 68.51, twitterFrame.minY + 114.53), controlPoint1: CGPointMake(twitterFrame.minX + 68.15, twitterFrame.minY + 109.84), controlPoint2: CGPointMake(twitterFrame.minX + 68.51, twitterFrame.minY + 114.53))
-      twitterLetterPath.addCurveToPoint(CGPointMake(twitterFrame.minX + 68.51, twitterFrame.minY + 125.91), controlPoint1: CGPointMake(twitterFrame.minX + 68.51, twitterFrame.minY + 114.53), controlPoint2: CGPointMake(twitterFrame.minX + 68.51, twitterFrame.minY + 119.58))
-      twitterLetterPath.addLineToPoint(CGPointMake(twitterFrame.minX + 90.71, twitterFrame.minY + 125.91))
-      twitterLetterPath.addCurveToPoint(CGPointMake(twitterFrame.minX + 95.17, twitterFrame.minY + 128.16), controlPoint1: CGPointMake(twitterFrame.minX + 92.33, twitterFrame.minY + 125.99), controlPoint2: CGPointMake(twitterFrame.minX + 93.93, twitterFrame.minY + 126.74))
-      twitterLetterPath.addCurveToPoint(CGPointMake(twitterFrame.minX + 95.17, twitterFrame.minY + 139.02), controlPoint1: CGPointMake(twitterFrame.minX + 97.78, twitterFrame.minY + 131.16), controlPoint2: CGPointMake(twitterFrame.minX + 97.78, twitterFrame.minY + 136.02))
-      twitterLetterPath.addCurveToPoint(CGPointMake(twitterFrame.minX + 91, twitterFrame.minY + 141.5), controlPoint1: CGPointMake(twitterFrame.minX + 93.93, twitterFrame.minY + 140.44), controlPoint2: CGPointMake(twitterFrame.minX + 92.62, twitterFrame.minY + 141.43))
-      twitterLetterPath.addLineToPoint(CGPointMake(twitterFrame.minX + 69, twitterFrame.minY + 141.5))
-      twitterLetterPath.addCurveToPoint(CGPointMake(twitterFrame.minX + 74, twitterFrame.minY + 154), controlPoint1: CGPointMake(twitterFrame.minX + 68.2, twitterFrame.minY + 154.3), controlPoint2: CGPointMake(twitterFrame.minX + 71.97, twitterFrame.minY + 152.92))
-      twitterLetterPath.closePath()
+    if state == .Normal {
+      //// Text 5 Drawing
+      var text5Path = UIBezierPath()
+      text5Path.moveToPoint(CGPointMake(twitterFrame.minX + 92.5, twitterFrame.minY + 163.06))
+      text5Path.addCurveToPoint(CGPointMake(twitterFrame.minX + 87.28, twitterFrame.minY + 164.12), controlPoint1: CGPointMake(twitterFrame.minX + 90.86, twitterFrame.minY + 163.51), controlPoint2: CGPointMake(twitterFrame.minX + 89.12, twitterFrame.minY + 163.86))
+      text5Path.addCurveToPoint(CGPointMake(twitterFrame.minX + 80.53, twitterFrame.minY + 164.5), controlPoint1: CGPointMake(twitterFrame.minX + 85.44, twitterFrame.minY + 164.37), controlPoint2: CGPointMake(twitterFrame.minX + 83.19, twitterFrame.minY + 164.5))
+      text5Path.addCurveToPoint(CGPointMake(twitterFrame.minX + 67.26, twitterFrame.minY + 160.67), controlPoint1: CGPointMake(twitterFrame.minX + 74.58, twitterFrame.minY + 164.5), controlPoint2: CGPointMake(twitterFrame.minX + 70.16, twitterFrame.minY + 163.22))
+      text5Path.addCurveToPoint(CGPointMake(twitterFrame.minX + 62.91, twitterFrame.minY + 147.57), controlPoint1: CGPointMake(twitterFrame.minX + 64.36, twitterFrame.minY + 158.12), controlPoint2: CGPointMake(twitterFrame.minX + 62.91, twitterFrame.minY + 153.76))
+      text5Path.addLineToPoint(CGPointMake(twitterFrame.minX + 62.91, twitterFrame.minY + 123.94))
+      text5Path.addLineToPoint(CGPointMake(twitterFrame.minX + 56.62, twitterFrame.minY + 123.94))
+      text5Path.addLineToPoint(CGPointMake(twitterFrame.minX + 56.62, twitterFrame.minY + 112.95))
+      text5Path.addLineToPoint(CGPointMake(twitterFrame.minX + 62.91, twitterFrame.minY + 112.95))
+      text5Path.addLineToPoint(CGPointMake(twitterFrame.minX + 62.91, twitterFrame.minY + 98.5))
+      text5Path.addLineToPoint(CGPointMake(twitterFrame.minX + 78.19, twitterFrame.minY + 98.5))
+      text5Path.addLineToPoint(CGPointMake(twitterFrame.minX + 78.19, twitterFrame.minY + 112.95))
+      text5Path.addLineToPoint(CGPointMake(twitterFrame.minX + 92.5, twitterFrame.minY + 112.95))
+      text5Path.addLineToPoint(CGPointMake(twitterFrame.minX + 92.5, twitterFrame.minY + 123.94))
+      text5Path.addLineToPoint(CGPointMake(twitterFrame.minX + 78.19, twitterFrame.minY + 123.94))
+      text5Path.addLineToPoint(CGPointMake(twitterFrame.minX + 78.19, twitterFrame.minY + 141.85))
+      text5Path.addCurveToPoint(CGPointMake(twitterFrame.minX + 78.23, twitterFrame.minY + 146.49), controlPoint1: CGPointMake(twitterFrame.minX + 78.19, twitterFrame.minY + 143.63), controlPoint2: CGPointMake(twitterFrame.minX + 78.21, twitterFrame.minY + 145.17))
+      text5Path.addCurveToPoint(CGPointMake(twitterFrame.minX + 78.91, twitterFrame.minY + 150.05), controlPoint1: CGPointMake(twitterFrame.minX + 78.26, twitterFrame.minY + 147.81), controlPoint2: CGPointMake(twitterFrame.minX + 78.49, twitterFrame.minY + 149))
+      text5Path.addCurveToPoint(CGPointMake(twitterFrame.minX + 81.02, twitterFrame.minY + 152.55), controlPoint1: CGPointMake(twitterFrame.minX + 79.31, twitterFrame.minY + 151.1), controlPoint2: CGPointMake(twitterFrame.minX + 80.01, twitterFrame.minY + 151.93))
+      text5Path.addCurveToPoint(CGPointMake(twitterFrame.minX + 85.41, twitterFrame.minY + 153.47), controlPoint1: CGPointMake(twitterFrame.minX + 82.02, twitterFrame.minY + 153.16), controlPoint2: CGPointMake(twitterFrame.minX + 83.48, twitterFrame.minY + 153.47))
+      text5Path.addCurveToPoint(CGPointMake(twitterFrame.minX + 88.53, twitterFrame.minY + 152.93), controlPoint1: CGPointMake(twitterFrame.minX + 86.2, twitterFrame.minY + 153.47), controlPoint2: CGPointMake(twitterFrame.minX + 87.24, twitterFrame.minY + 153.29))
+      text5Path.addCurveToPoint(CGPointMake(twitterFrame.minX + 91.23, twitterFrame.minY + 151.94), controlPoint1: CGPointMake(twitterFrame.minX + 89.82, twitterFrame.minY + 152.57), controlPoint2: CGPointMake(twitterFrame.minX + 90.72, twitterFrame.minY + 152.24))
+      text5Path.addLineToPoint(CGPointMake(twitterFrame.minX + 92.5, twitterFrame.minY + 151.94))
+      text5Path.addLineToPoint(CGPointMake(twitterFrame.minX + 92.5, twitterFrame.minY + 163.06))
+      text5Path.closePath()
       CGContextSaveGState(context)
-      CGContextSetShadowWithColor(context, textShadowOffset, textShadowBlurRadius, textShadow.CGColor)
+      CGContextSetShadowWithColor(context, textShadowOffset, textShadowBlurRadius, (textShadow as UIColor).CGColor)
       fillColor.setFill()
-      twitterLetterPath.fill()
+      text5Path.fill()
       CGContextRestoreGState(context)
+
+      fillColor.setStroke()
+      text5Path.lineWidth = 1
+      text5Path.stroke()
     }
   }
 
@@ -457,7 +649,7 @@ class ClumsySocialButton: UIButton {
     twitterLetterPath.addCurveToPoint(CGPointMake(scoreFrame.minX + 45.54, scoreFrame.minY + 61.36), controlPoint1: CGPointMake(scoreFrame.minX + 39.87, scoreFrame.minY + 61.64), controlPoint2: CGPointMake(scoreFrame.minX + 43.56, scoreFrame.minY + 60.37))
     twitterLetterPath.closePath()
     twitterLetterPath.lineCapStyle = kCGLineCapRound;
-    
+
     twitterLetterPath.lineJoinStyle = kCGLineJoinBevel;
     
     twitterColor!.setFill()

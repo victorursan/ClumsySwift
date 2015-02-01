@@ -10,7 +10,7 @@ import UIKit
 import CoreMotion
 import GameKit
 
-class ClumsyMainViewController: UIViewController, ClumsyMainButtonDelegate, ClumsySwipeGestureRecognizerDelegate, ClumsyShakeDelegate, ClumsyEngineDelegate, ClumsySocialButtonDelegate, ClumsyScoreViewDelegate {
+class ClumsyMainViewController: UIViewController, ClumsyMainButtonDelegate, ClumsySwipeGestureRecognizerDelegate, ClumsyShakeDelegate, ClumsyEngineDelegate, ClumsySocialButtonDelegate, ClumsyScoreViewDelegate, GKGameCenterControllerDelegate {
 
   private var mainView: ClumsyMainView?
   private var actionView: ClumsyActionView?
@@ -20,6 +20,7 @@ class ClumsyMainViewController: UIViewController, ClumsyMainButtonDelegate, Clum
   private var shake: ClumsyShake?
   private var facebookButton: ClumsySocialButton?
   private var twitterButton: ClumsySocialButton?
+  private var leaderboardButton: ClumsySocialButton?
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -34,6 +35,9 @@ class ClumsyMainViewController: UIViewController, ClumsyMainButtonDelegate, Clum
     twitterButton = ClumsySocialButton(button: .TwitterShare,
       frame: CGRectMake(view.frame.width*0.656, 0, view.frame.width*0.1562, view.frame.width*0.3125),
       target: self)
+    leaderboardButton = ClumsySocialButton(button: .LeaderboardMain,
+      frame: CGRectMake(view.frame.width*0.484, 0, view.frame.width*0.1562, view.frame.width*0.3125),
+      target: self)
     engine = ClumsyEngine(target: self)
     shake = ClumsyShake(target: self)
 
@@ -43,6 +47,7 @@ class ClumsyMainViewController: UIViewController, ClumsyMainButtonDelegate, Clum
     view.addSubview(progressBar!)
     view.addSubview(facebookButton!)
     view.addSubview(twitterButton!)
+    view.addSubview(leaderboardButton!)
     addSwipes()
     actionView!.viewForAction(.Start)
   }
@@ -136,12 +141,23 @@ class ClumsyMainViewController: UIViewController, ClumsyMainButtonDelegate, Clum
     progressBar!.incrementSliderWith(amount, reset: reset)
   }
 
+
   internal func socialButtonPressed(type: SocialButton) {
-    presentViewController(ClumsySocialHandler().createSocialShareSheetFor(type), animated: true, completion: nil)
+    if type == .LeaderboardMain {
+      var gc = GKGameCenterViewController()
+      gc.gameCenterDelegate = self
+      presentViewController(gc, animated: true, completion: nil)
+    } else {
+      presentViewController(ClumsySocialHandler().createSocialShareSheetFor(type), animated: true, completion: nil)
+    }
   }
 
   internal func presentSocialViewController(socialViewController: UIViewController) {
     presentViewController(socialViewController, animated: true, completion: nil)
+  }
+
+  func gameCenterViewControllerDidFinish(gameCenterViewController: GKGameCenterViewController!) {
+    gameCenterViewController.dismissViewControllerAnimated(true, completion: nil)
   }
 
   internal func showSocialButtons() {
@@ -150,12 +166,14 @@ class ClumsyMainViewController: UIViewController, ClumsyMainButtonDelegate, Clum
     progressBar!.hidden = true
     facebookButton!.hidden = false
     twitterButton!.hidden = false
+    leaderboardButton!.hidden = false
   }
 
   internal func hideSocialButtons() {
     progressBar!.hidden = false
     facebookButton!.hidden = true
     twitterButton!.hidden = true
+    leaderboardButton!.hidden = true
   }
-
+  
 }
