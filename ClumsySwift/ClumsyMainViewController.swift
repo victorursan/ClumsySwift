@@ -64,7 +64,6 @@ class ClumsyMainViewController: UIViewController, ClumsyMainButtonDelegate, Clum
     }
   }
 
-
   private func addSwipes() {
     view.addGestureRecognizer(ClumsySwipeGestureRecognizer(direction: .Up, target: self))
     view.addGestureRecognizer(ClumsySwipeGestureRecognizer(direction: .Down, target: self))
